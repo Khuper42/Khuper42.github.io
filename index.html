@@ -1,3 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя Витрина</title>
+    <style>
+        /* Стили для таймера */
+        #timer-container {
+            background-color: #222; /* Темный фон для контраста */
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            border-bottom: 3px solid #ffaa00; /* Яркая полоска снизу */
+        }
+
+        #timer-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        #countdown {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ffaa00; /* Яркий цвет для самих цифр */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="timer-container">
+        <div id="timer-title">До старта продаж осталось:</div>
+        <div id="countdown">Загрузка...</div>
+    </div>
+
+    <div style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+        <h1>Добро пожаловать в мой шоурум!</h1>
+        <p>Здесь скоро появятся мои товары.</p>
+    </div>
+
+    <script>
+        // 1. Установите дату и время, до которых нужно вести отсчет (Год, Месяц, День, Часы, Минуты, Секунды)
+        // Обратите внимание: месяцы в JavaScript пишутся на английском (например, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec)
+        var countDownDate = new Date("Dec 31, 2026 12:00:00").getTime();
+
+        // 2. Обновляем таймер каждую секунду (1000 миллисекунд)
+        var timerInterval = setInterval(function() {
+
+            // Получаем текущее время
+            var now = new Date().getTime();
+
+            // Находим разницу между текущим временем и датой старта
+            var distance = countDownDate - now;
+
+            // Высчитываем дни, часы, минуты и секунды
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Выводим результат в элемент с id="countdown"
+            document.getElementById("countdown").innerHTML = days + "д " + hours + "ч "
+            + minutes + "м " + seconds + "с ";
+
+            // Если время вышло, останавливаем таймер и пишем сообщение
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                document.getElementById("countdown").innerHTML = "ПРОДАЖИ ОТКРЫТЫ!";
+                // При желании можно поменять текст заголовка
+                document.getElementById("timer-title").style.display = "none"; 
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
+
+
+
 <div style="
 background-image:url('autor666.png');
 height:100vh;
