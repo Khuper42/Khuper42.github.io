@@ -13,3 +13,327 @@
         text-decoration: none;
     }
 </style>
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дмитрий Миронов | Авторский курс криминальной психологии</title>
+    <style>
+        /* Базовые стили и темная тема */
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+
+        /* Навигация (Header) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #121212;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .age-limit {
+            color: #cc0000;
+            font-size: 14px;
+            vertical-align: super;
+            margin-left: 5px;
+        }
+        nav a {
+            color: #bbb;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+        .contact-links a {
+            color: #bbb;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+        .contact-links a:hover { color: #fff; }
+
+        /* Главный экран (Hero Section) */
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+            background: radial-gradient(circle, #1a1a1a 0%, #0a0a0a 100%);
+        }
+        .hero h1 {
+            font-size: 56px;
+            margin: 0 0 10px 0;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+        .hero h2 {
+            font-size: 24px;
+            color: #888;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            color: #ccc;
+            font-style: italic;
+        }
+
+        /* Кнопки */
+        .btn {
+            background-color: #8b0000;
+            color: #fff;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            margin: 0 10px;
+            transition: background 0.3s;
+            border: 1px solid #8b0000;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .btn:hover { background-color: #a50000; }
+        .btn-outline {
+            background-color: transparent;
+            color: #bbb;
+            border: 1px solid #555;
+        }
+        .btn-outline:hover {
+            border-color: #fff;
+            color: #fff;
+        }
+
+        /* Секции контента */
+        section {
+            padding: 80px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        section h2 {
+            font-size: 36px;
+            color: #fff;
+            border-left: 4px solid #8b0000;
+            padding-left: 15px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+        
+        /* Сетка карточек */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background-color: #151515;
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid #222;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #444;
+        }
+        .card h3 {
+            color: #fff;
+            margin-top: 0;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .card p, .card li {
+            color: #aaa;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        /* Форма заявки */
+        .form-section {
+            background-color: #111;
+            padding: 60px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            max-width: 600px;
+            margin: 0 auto 80px auto;
+        }
+        .form-section h2 { border-left: none; text-align: center; margin-bottom: 30px; }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        input, textarea {
+            padding: 15px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #8b0000;
+        }
+        .checkbox-label {
+            font-size: 12px;
+            color: #777;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #050505;
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+        footer p { color: #666; font-size: 14px; margin: 10px 0; }
+        .warning-footer { font-size: 24px; color: #cc0000; font-weight: bold; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            True Crime Factory <span class="age-limit">18+</span>
+        </div>
+        <nav>
+            <a href="#about">Об авторе</a>
+            <a href="#course">О курсе</a>
+            <a href="#media">Медиа</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+        <div class="contact-links">
+            <a href="mailto:funeral-marshes@yandex.ru">funeral-marshes@yandex.ru</a>
+            <a href="https://t.me/DMMorbid">@DMMorbid</a>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>Дмитрий Миронов</h1>
+        <h2>Авторский курс криминальной психологии</h2>
+        <p>“Психология монстров: от реальности к художественному образу”<br>
+        Приватное погружение для профессионалов и интеллектуальной элиты.</p>
+        <div style="margin-top: 40px;">
+            <a href="#enroll" class="btn">Записаться на курс</a>
+            <a href="#enroll" class="btn btn-outline">Получить консультацию</a>
+        </div>
+    </div>
+
+    <section id="about">
+        <h2>Об авторе</h2>
+        <p style="color: #bbb; font-size: 18px; margin-bottom: 40px;">Дмитрий Миронов — эксперт в области криминальной психологии с уникальным практическим опытом. Кандидат наук.</p>
+        <div class="grid">
+            <div class="card">
+                <h3>Уникальный опыт</h3>
+                <p>Старший оперуполномоченный по особо важным делам отдела по раскрытию убийств Московского уголовного розыска (2-й отдел МУРа) в отставке. Лично арестовывал и допрашивал 50+ убийц, серийных убийц, насильников, педофилов.</p>
+            </div>
+            <div class="card">
+                <h3>Международная практика</h3>
+                <p>Участвовал в международной полицейской операции «Голубая Орхидея». Первый действующий сотрудник МВД России официально выступавший в большом жюри суда присяжных в Чикаго (США). Награжден медалью Таможенной службы США.</p>
+            </div>
+            <div class="card">
+                <h3>Бэкграунд в киноиндустрии</h3>
+                <p>Консультант сериалов «Водоворот» и «Внутри Убийцы». Эксперт на Кинопоиске. Лично знаком с прототипами главных героев сериала "Mindhunter" (Дж. Дугласом, Р. Хэзелвудом, Р. Ресслером).</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="course">
+        <h2>Программа курса</h2>
+        <p style="color: #bbb; font-size: 18px; margin-bottom: 40px;">Это не образовательный курс в традиционном понимании. Это интеллектуальное путешествие в крайние проявления человеческой природы с экспертом-практиком.</p>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>Тема 1. Психология серийных убийц</h3>
+                <p>Феномен серийных убийств. Личность убийцы и особенности её формирования. Круглый стол: анализ мотивации и поведенческих циклов на основе реальных дел (Сливко А.Е., Головкин С.А.).</p>
+            </div>
+            <div class="card">
+                <h3>Тема 2. Психологический портрет</h3>
+                <p>Методика профайлинга. История разработки и основы ФБР и Ливерпульского института. Психогеографический анализ серий убийств.</p>
+            </div>
+            <div class="card">
+                <h3>Тема 3. Перверсии</h3>
+                <p>Аномальное сексуальное поведение: педофилия, сексуальный каннибализм, некрофилия, садизм. Разбор дел Майвеса А., Джумагалиева Н.А. и операции «Голубая Орхидея».</p>
+            </div>
+            <div class="card">
+                <h3>Тема 4. Тренинг и практикум</h3>
+                <p>Разбор эталонных персонажей в кино («Семь», «Молчание ягнят», «Охотник за разумом»). Практикум: Разработка собственного персонажа убийцы и линии его поимки.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="media">
+        <h2>Медиа и выступления</h2>
+        <div class="grid">
+            <div class="card" style="padding: 25px;">
+                <p style="color:#fff;"><strong>Кинопоиск Экстра</strong></p>
+                <p>Оперативник, клинический психолог и танатопрактик разбирают сериал «Внутри убийцы»</p>
+            </div>
+            <div class="card" style="padding: 25px;">
+                <p style="color:#fff;"><strong>Саша Сулим</strong></p>
+                <p>Как ловили самую опасную серийную убийцу современной России (Марию Петрову)?</p>
+            </div>
+            <div class="card" style="padding: 25px;">
+                <p style="color:#fff;"><strong>Люди PRO</strong></p>
+                <p>Охотник на маньяков: жуткие истории, некрофилы и каннибалы из практики МУРа</p>
+            </div>
+            <div class="card" style="padding: 25px;">
+                <p style="color:#fff;"><strong>Доктор Сычев</strong></p>
+                <p>Дмитрий Миронов. Почерк маньяка, профайлинг, психология преступников</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="enroll">
+        <div class="form-section">
+            <h2>Оставить заявку</h2>
+            <form class="form-group" action="#" method="POST">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="tel" placeholder="Ваш телефон *" required>
+                <textarea placeholder="Ваш вопрос (если нужна консультация)" rows="4"></textarea>
+                <label class="checkbox-label">
+                    <input type="checkbox" required>
+                    Я согласен на обработку моих персональных данных
+                </label>
+                <button type="submit" class="btn" style="width: 100%; margin: 10px 0 0 0;">Отправить заявку</button>
+            </form>
+        </div>
+    </section>
+
+    <footer id="contacts">
+        <div class="warning-footer">18+</div>
+        <p><strong>True Crime Factory</strong></p>
+        <p>По всем вопросам: <a href="mailto:funeral-marshes@yandex.ru" style="color:#bbb;">funeral-marshes@yandex.ru</a> | Telegram: <a href="https://t.me/DMMorbid" style="color:#bbb;">@DMMorbid</a></p>
+        <p style="margin-top: 30px; font-size: 12px; color: #444;">© 2025 True Crime Factory. Все права защищены. | Политика конфиденциальности</p>
+    </footer>
+
+</body>
+</html>
