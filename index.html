@@ -1,338 +1,226 @@
-<style>
-    body {
-        background-color: #121212; /* Глубокий темный фон, стандарт для веб-дизайна */
-        color: #ffffff;            /* Белый цвет текста для читаемости */
-        margin: 0;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-    }
-
-    /* Дополнительно: чтобы ссылки тоже были видны на темном фоне */
-    a {
-        color: #4CAF50; 
-        text-decoration: none;
-    }
-</style>
-
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Александр Махметов | Авторский курс криминальной психологии</title>
+    <title>SAFIDI AGENCY | Поиск туров и отдыха</title>
     <style>
-        /* Базовые стили и темная тема */
-        body {
-            margin: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0a0a0a;
-            color: #f0f0f0;
-            line-height: 1.6;
+        /* Глобальные настройки */
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            background-color: #f7f9fa; 
+            color: #333; 
         }
-
-        /* Навигация (Header) */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background-color: #121212;
-            border-bottom: 1px solid #333;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .age-limit {
-            color: #cc0000;
-            font-size: 14px;
-            vertical-align: super;
-            margin-left: 5px;
-        }
-        nav a {
-            color: #bbb;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 14px;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #fff;
-        }
-        .contact-links a {
-            color: #bbb;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 14px;
-        }
-        .contact-links a:hover { color: #fff; }
-
-        /* Главный экран (Hero Section) */
-        .hero {
-            text-align: center;
-            padding: 120px 20px;
-            background: radial-gradient(circle, #1a1a1a 0%, #0a0a0a 100%);
-        }
-        .hero h1 {
-            font-size: 56px;
-            margin: 0 0 10px 0;
-            color: #ffffff;
-            letter-spacing: 1px;
-        }
-        .hero h2 {
-            font-size: 24px;
-            color: #888;
-            font-weight: 300;
-            margin-bottom: 30px;
-        }
-        .hero p {
-            font-size: 20px;
-            max-width: 800px;
-            margin: 0 auto 50px auto;
-            color: #ccc;
-            font-style: italic;
-        }
-
-        /* Кнопки */
-        .btn {
-            background-color: #8b0000;
-            color: #fff;
-            padding: 15px 35px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 4px;
-            margin: 0 10px;
-            transition: background 0.3s;
-            border: 1px solid #8b0000;
-            cursor: pointer;
-            display: inline-block;
-        }
-        .btn:hover { background-color: #a50000; }
-        .btn-outline {
-            background-color: transparent;
-            color: #bbb;
-            border: 1px solid #555;
-        }
-        .btn-outline:hover {
-            border-color: #fff;
-            color: #fff;
-        }
-
-        /* Секции контента */
-        section {
-            padding: 80px 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        section h2 {
-            font-size: 36px;
-            color: #fff;
-            border-left: 4px solid #8b0000;
-            padding-left: 15px;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-        }
+        a { text-decoration: none; color: inherit; }
+        * { box-sizing: border-box; }
         
-        /* Сетка карточек */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+        /* Шапка сайта (Header) */
+        header { 
+            background-color: #ffffff; 
+            padding: 15px 50px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
         }
-        .card {
-            background-color: #151515;
-            padding: 40px;
-            border-radius: 8px;
-            border: 1px solid #222;
-            transition: transform 0.3s;
+        .logo { 
+            font-size: 26px; 
+            font-weight: 900; 
+            color: #0056b3; /* Синий цвет доверия */
+            letter-spacing: 1px; 
+            text-transform: uppercase;
         }
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #444;
-        }
-        .card h3 {
-            color: #fff;
-            margin-top: 0;
-            font-size: 22px;
-            margin-bottom: 20px;
-        }
-        .card p, .card li {
-            color: #aaa;
-            font-size: 15px;
-            margin-bottom: 10px;
-        }
+        .logo span { color: #ff6600; /* Оранжевый акцент */ }
+        nav { display: flex; gap: 25px; font-weight: 500; font-size: 15px; }
+        nav a:hover { color: #0056b3; }
+        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .phone { font-weight: bold; color: #333; font-size: 16px; }
 
-        /* Форма заявки */
-        .form-section {
-            background-color: #111;
-            padding: 60px;
-            border-radius: 10px;
-            border: 1px solid #333;
-            max-width: 600px;
-            margin: 0 auto 80px auto;
+        /* Главный баннер (Hero) */
+        .hero { 
+            /* Фоновая картинка с затемнением */
+            background: linear-gradient(rgba(0, 30, 80, 0.6), rgba(0, 30, 80, 0.6)), 
+                        url('https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; 
+            color: #ffffff; 
+            text-align: center; 
+            padding: 100px 20px 120px; 
         }
-        .form-section h2 { border-left: none; text-align: center; margin-bottom: 30px; }
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .hero h1 { font-size: 48px; margin: 0 0 15px; }
+        .hero p { font-size: 20px; margin: 0 0 40px; font-weight: 300; }
+        
+        /* Виджет поиска туров */
+        .search-widget { 
+            background: #ffffff; 
+            border-radius: 8px; 
+            padding: 10px; 
+            display: flex; 
+            gap: 10px; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2); 
+            transform: translateY(40px); /* Смещение вниз на границу баннера */
         }
-        input, textarea {
-            padding: 15px;
-            background: #1a1a1a;
-            border: 1px solid #333;
-            color: #fff;
-            border-radius: 5px;
-            font-size: 16px;
-            font-family: inherit;
+        .search-field { 
+            flex: 1; 
+            padding: 15px; 
+            border: 1px solid #e0e0e0; 
+            border-radius: 6px; 
+            display: flex; 
+            flex-direction: column; 
+            text-align: left; 
+            background: #fdfdfd;
         }
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #8b0000;
+        .search-field label { font-size: 11px; color: #888; margin-bottom: 5px; text-transform: uppercase; font-weight: bold;}
+        .search-field input, .search-field select { 
+            border: none; font-size: 16px; font-weight: 600; color: #333; outline: none; width: 100%; background: transparent; cursor: pointer;
         }
-        .checkbox-label {
-            font-size: 12px;
-            color: #777;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .btn-search { 
+            background-color: #ff6600; 
+            color: #fff; 
+            border: none; 
+            padding: 0 40px; 
+            font-size: 18px; 
+            font-weight: bold; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            transition: background 0.3s; 
         }
+        .btn-search:hover { background-color: #e65c00; }
 
-        /* Подвал */
-        footer {
-            background-color: #050505;
-            padding: 50px;
-            text-align: center;
-            border-top: 1px solid #222;
+        /* Контентная часть */
+        .container { max-width: 1200px; margin: 80px auto 60px; padding: 0 20px; }
+        .section-title { font-size: 32px; margin-bottom: 30px; font-weight: 800; color: #111; }
+        
+        /* Сетка карточек туров */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { 
+            background: #fff; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06); 
+            transition: transform 0.3s, box-shadow 0.3s; 
+            cursor: pointer; 
         }
-        footer p { color: #666; font-size: 14px; margin: 10px 0; }
-        .warning-footer { font-size: 24px; color: #cc0000; font-weight: bold; margin-bottom: 20px; }
+        .card:hover { transform: translateY(-7px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+        .card-img { height: 220px; background-color: #ddd; background-size: cover; background-position: center; position: relative; }
+        .badge { 
+            position: absolute; top: 15px; left: 15px; 
+            background: #ff6600; color: #fff; padding: 5px 12px; 
+            font-size: 12px; font-weight: bold; border-radius: 4px; 
+        }
+        .card-body { padding: 25px; }
+        .card-title { font-size: 20px; font-weight: bold; margin: 0 0 10px; color: #111; }
+        .card-desc { font-size: 14px; color: #666; margin-bottom: 20px; line-height: 1.5; }
+        .card-price-row { display: flex; justify-content: space-between; align-items: flex-end; }
+        .card-price { font-size: 24px; font-weight: bold; color: #0056b3; }
+        .card-price span { font-size: 14px; color: #888; font-weight: normal; }
+
+        /* Подвал (Footer) */
+        footer { 
+            background: #1a2538; 
+            color: #fff; 
+            padding: 60px 20px 30px; 
+            text-align: center; 
+            font-size: 14px; 
+        }
+        footer .footer-logo { font-size: 24px; font-weight: 900; color: #fff; margin-bottom: 20px; letter-spacing: 1px;}
+        footer .footer-logo span { color: #ff6600; }
+        footer p { margin-bottom: 10px; color: #8a9bb5; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">
-            True Crime Factory <span class="age-limit">18+</span>
-        </div>
+        <div class="logo">SAFIDI <span>AGENCY</span></div>
         <nav>
-            <a href="#about">Об авторе</a>
-            <a href="#course">О курсе</a>
-            <a href="#media">Медиа</a>
-            <a href="#contacts">Контакты</a>
+            <a href="#">Туры</a>
+            <a href="#">Отели</a>
+            <a href="#">Акции</a>
+            <a href="#">О компании</a>
         </nav>
-        <div class="contact-links">
-            <a href="mailto:funeral-marshes@yandex.ru">funeral-marshes@yandex.ru</a>
-            <a href="https://t.me/DMMorbid">@DMMorbid</a>
+        <div class="header-actions">
+            <div class="phone">8 (800) 000-00-00</div>
+            <a href="#" style="color: #0056b3; font-weight: bold;">Войти</a>
         </div>
     </header>
 
     <div class="hero">
-        <h1>Дмитрий Миронов</h1>
-        <h2>Авторский курс криминальной психологии</h2>
-        <p>“Психология монстров: от реальности к художественному образу”<br>
-        Приватное погружение для профессионалов и интеллектуальной элиты.</p>
-        <div style="margin-top: 40px;">
-            <a href="#enroll" class="btn">Записаться на курс</a>
-            <a href="#enroll" class="btn btn-outline">Получить консультацию</a>
+        <h1>Откройте мир с SAFIDI AGENCY</h1>
+        <p>Лучшие туры и отели по выгодным ценам</p>
+
+        <div class="search-widget">
+            <div class="search-field">
+                <label>Город вылета</label>
+                <input type="text" value="Москва" readonly>
+            </div>
+            <div class="search-field">
+                <label>Куда</label>
+                <input type="text" placeholder="Страна, курорт или отель">
+            </div>
+            <div class="search-field">
+                <label>Даты</label>
+                <input type="text" value="10 Июня - 17 Июня" readonly>
+            </div>
+            <div class="search-field">
+                <label>Туристы</label>
+                <input type="text" value="2 взрослых" readonly>
+            </div>
+            <button class="btn-search">Найти туры</button>
         </div>
     </div>
 
-    <section id="about">
-        <h2>Об авторе</h2>
-        <p style="color: #bbb; font-size: 18px; margin-bottom: 40px;">Дмитрий Миронов — эксперт в области криминальной психологии с уникальным практическим опытом. Кандидат наук.</p>
-        <div class="grid">
-            <div class="card">
-                <h3>Уникальный опыт</h3>
-                <p>Старший оперуполномоченный по особо важным делам отдела по раскрытию убийств Московского уголовного розыска (2-й отдел МУРа) в отставке. Лично арестовывал и допрашивал 50+ убийц, серийных убийц, насильников, педофилов.</p>
-            </div>
-            <div class="card">
-                <h3>Международная практика</h3>
-                <p>Участвовал в международной полицейской операции «Голубая Орхидея». Первый действующий сотрудник МВД России официально выступавший в большом жюри суда присяжных в Чикаго (США). Награжден медалью Таможенной службы США.</p>
-            </div>
-            <div class="card">
-                <h3>Бэкграунд в киноиндустрии</h3>
-                <p>Консультант сериалов «Водоворот» и «Внутри Убийцы». Эксперт на Кинопоиске. Лично знаком с прототипами главных героев сериала "Mindhunter" (Дж. Дугласом, Р. Хэзелвудом, Р. Ресслером).</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="course">
-        <h2>Программа курса</h2>
-        <p style="color: #bbb; font-size: 18px; margin-bottom: 40px;">Это не образовательный курс в традиционном понимании. Это интеллектуальное путешествие в крайние проявления человеческой природы с экспертом-практиком.</p>
+    <div class="container">
+        <h2 class="section-title">Горящие туры и популярные направления</h2>
         
         <div class="grid">
             <div class="card">
-                <h3>Тема 1. Психология серийных убийц</h3>
-                <p>Феномен серийных убийств. Личность убийцы и особенности её формирования. Круглый стол: анализ мотивации и поведенческих циклов на основе реальных дел (Сливко А.Е., Головкин С.А.).</p>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1540202404-b711142289ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="badge">Выгода 20%</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Турция, Анталья</h3>
+                    <p class="card-desc">Rixos Downtown Antalya 5*<br>Ультра все включено • 7 ночей</p>
+                    <div class="card-price-row">
+                        <div class="card-price">124 500 ₽ <span>/ за двоих</span></div>
+                    </div>
+                </div>
             </div>
+
             <div class="card">
-                <h3>Тема 2. Психологический портрет</h3>
-                <p>Методика профайлинга. История разработки и основы ФБР и Ливерпульского института. Психогеографический анализ серий убийств.</p>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1512684079458-7c8c22dc9a96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="badge">Хит продаж</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">ОАЭ, Дубай</h3>
+                    <p class="card-desc">Wyndham Dubai Marina 4*<br>Завтраки • 6 ночей</p>
+                    <div class="card-price-row">
+                        <div class="card-price">145 000 ₽ <span>/ за двоих</span></div>
+                    </div>
+                </div>
             </div>
+
             <div class="card">
-                <h3>Тема 3. Перверсии</h3>
-                <p>Аномальное сексуальное поведение: педофилия, сексуальный каннибализм, некрофилия, садизм. Разбор дел Майвеса А., Джумагалиева Н.А. и операции «Голубая Орхидея».</p>
-            </div>
-            <div class="card">
-                <h3>Тема 4. Тренинг и практикум</h3>
-                <p>Разбор эталонных персонажей в кино («Семь», «Молчание ягнят», «Охотник за разумом»). Практикум: Разработка собственного персонажа убийцы и линии его поимки.</p>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="card-body">
+                    <h3 class="card-title">Мальдивы, Атолл Мале</h3>
+                    <p class="card-desc">Sun Island Resort & Spa 5*<br>Полный пансион • 9 ночей</p>
+                    <div class="card-price-row">
+                        <div class="card-price">310 200 ₽ <span>/ за двоих</span></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="media">
-        <h2>Медиа и выступления</h2>
-        <div class="grid">
-            <div class="card" style="padding: 25px;">
-                <p style="color:#fff;"><strong>Кинопоиск Экстра</strong></p>
-                <p>Оперативник, клинический психолог и танатопрактик разбирают сериал «Внутри убийцы»</p>
-            </div>
-            <div class="card" style="padding: 25px;">
-                <p style="color:#fff;"><strong>Саша Сулим</strong></p>
-                <p>Как ловили самую опасную серийную убийцу современной России (Марию Петрову)?</p>
-            </div>
-            <div class="card" style="padding: 25px;">
-                <p style="color:#fff;"><strong>Люди PRO</strong></p>
-                <p>Охотник на маньяков: жуткие истории, некрофилы и каннибалы из практики МУРа</p>
-            </div>
-            <div class="card" style="padding: 25px;">
-                <p style="color:#fff;"><strong>Доктор Сычев</strong></p>
-                <p>Дмитрий Миронов. Почерк маньяка, профайлинг, психология преступников</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="enroll">
-        <div class="form-section">
-            <h2>Оставить заявку</h2>
-            <form class="form-group" action="#" method="POST">
-                <input type="text" placeholder="Ваше имя" required>
-                <input type="tel" placeholder="Ваш телефон *" required>
-                <textarea placeholder="Ваш вопрос (если нужна консультация)" rows="4"></textarea>
-                <label class="checkbox-label">
-                    <input type="checkbox" required>
-                    Я согласен на обработку моих персональных данных
-                </label>
-                <button type="submit" class="btn" style="width: 100%; margin: 10px 0 0 0;">Отправить заявку</button>
-            </form>
-        </div>
-    </section>
-
-    <footer id="contacts">
-        <div class="warning-footer">18+</div>
-        <p><strong>True Crime Factory</strong></p>
-        <p>По всем вопросам: <a href="mailto:funeral-marshes@yandex.ru" style="color:#bbb;">funeral-marshes@yandex.ru</a> | Telegram: <a href="https://t.me/DMMorbid" style="color:#bbb;">@DMMorbid</a></p>
-        <p style="margin-top: 30px; font-size: 12px; color: #444;">© 2025 True Crime Factory. Все права защищены. | Политика конфиденциальности</p>
+    <footer>
+        <div class="footer-logo">SAFIDI <span>AGENCY</span></div>
+        <p>Ваш надежный партнер в мире путешествий.</p>
+        <p>Политика конфиденциальности | Пользовательское соглашение</p>
+        <p style="margin-top: 30px; font-size: 12px; opacity: 0.5;">© 2026 SAFIDI AGENCY. Все права защищены.</p>
     </footer>
 
 </body>
