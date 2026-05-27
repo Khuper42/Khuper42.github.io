@@ -54,4 +54,196 @@
         nav a {
             margin: 0 15px;
             font-size: 14px;
-            color: var(--text-color
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-green);
+        }
+
+        /* Главный баннер с крупным атмосферным фото */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(62, 54, 46, 0.4), rgba(62, 54, 46, 0.4)), 
+                        url('https://images.unsplash.com/photo-1500937386664-56d1dfefcb19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        /* Блок "О нас" */
+        .about {
+            max-width: 800px;
+            margin: 80px auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .about h2 {
+            color: var(--accent-green);
+            margin-bottom: 30px;
+        }
+
+        .about p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* Витрина товаров */
+        .products-section {
+            background-color: var(--accent-light);
+            padding: 80px 20px;
+        }
+
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 2px;
+            margin-bottom: 20px;
+        }
+
+        .product-title {
+            font-size: 20px;
+            margin: 0 0 10px 0;
+        }
+
+        .product-price {
+            font-size: 22px;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+        }
+
+        /* Кнопка заказа (переход в мессенджер) */
+        .btn-order {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: #fff;
+            padding: 12px 30px;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-order:hover {
+            background-color: #3a4a1b;
+        }
+
+        /* Подвал */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: var(--text-color);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ФЕРМЕРСКИЕ ПРОДУКТЫ</div>
+        <nav>
+            <a href="#about">История хозяйства</a>
+            <a href="#products">Витрина</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>С нашей земли — на ваш стол</h1>
+            <p>Натуральные продукты, выращенные с заботой о природе</p>
+        </div>
+    </div>
+
+    <section id="about" class="about">
+        <h2>О нашем хозяйстве</h2>
+        <p>Мы — семейная ферма, которая верит в честный ручной труд. Все наши продукты выращиваются без использования вредных химикатов, в гармонии с природой. Мы бережно относимся к земле, чтобы вы могли получать самые свежие и полезные овощи, зелень и ремесленные товары напрямую из наших рук.</p>
+    </section>
+
+    <section id="products" class="products-section">
+        <h2 style="text-align: center; color: var(--accent-green); margin-bottom: 50px;">Наша продукция</h2>
+        
+        <div class="products-container">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1590165482129-1b8b27698780?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Свежие овощи" class="product-image">
+                <h3 class="product-title">Корзина свежих овощей</h3>
+                <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Томаты, огурцы, зелень, собранные сегодня утром.</p>
+                <div class="product-price">1 500 ₽</div>
+                <a href="https://wa.me/79990000000?text=Здравствуйте!%20Хочу%20заказать%20Корзину%20свежих%20овощей" class="btn-order">Заказать</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1600189020967-17242277d1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Домашний сыр" class="product-image">
+                <h3 class="product-title">Сыр крафтовый</h3>
+                <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Полутвердый сыр из цельного молока.</p>
+                <div class="product-price">850 ₽ / кг</div>
+                <a href="https://wa.me/79990000000?text=Здравствуйте!%20Хочу%20заказать%20Крафтовый%20сыр" class="btn-order">Заказать</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1587049352847-81a56d773cac?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Фермерский мед" class="product-image">
+                <h3 class="product-title">Луговой мед</h3>
+                <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Собран на наших собственных пасеках.</p>
+                <div class="product-price">600 ₽ / банка</div>
+                <a href="https://wa.me/79990000000?text=Здравствуйте!%20Хочу%20заказать%20Луговой%20мед" class="btn-order">Заказать</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacts">
+        <h3>Свяжитесь с нами</h3>
+        <p>Мы всегда рады ответить на ваши вопросы и помочь с выбором.</p>
+        <p style="margin-top: 20px; color: var(--accent-light);">Телефон / WhatsApp: +7 (999) 000-00-00</p>
+        <p style="color: var(--accent-light);">Адрес: Фермерское хозяйство, Эко-деревня</p>
+        <p style="margin-top: 40px; font-size: 12px; opacity: 0.5;">© 2026 Наше Хозяйство. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
