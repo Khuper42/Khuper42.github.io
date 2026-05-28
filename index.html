@@ -3,109 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дневник Наблюдений</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
-
+    <title>Хроники Аманиты | Дневник наблюдений</title>
     <style>
-        /* Фон вокруг тетради (имитация стола) */
+        /* Глобальные настройки и темная ботаническая палитра */
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-green: #4caf50;
+            --accent-red: #e53935;
+            --accent-brown: #8d6e63;
+            --card-bg: #1e1e1e;
+        }
+
         body {
-            background-color: #d1d5db; /* Серый фон рабочего стола */
-            padding: 40px 20px;
             margin: 0;
-            display: flex;
-            justify-content: center;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
-        /* Сам тетрадный лист */
-        .notebook-page {
-            width: 100%;
-            max-width: 800px;
-            background-color: #fdfbf7; /* Цвет слегка состаренной бумаги */
-            border-radius: 3px;
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-            position: relative;
-            padding: 40px 30px 40px 80px; /* Отступы для текста */
-            
-            /* Рисуем синие линии тетради (шаг ровно 32px) */
-            background-image: repeating-linear-gradient(
-                transparent, 
-                transparent 31px, 
-                #a3b8cc 31px, 
-                #a3b8cc 32px
-            );
-        }
-
-        /* Рисуем красное поле слева */
-        .notebook-page::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 60px; /* Положение красной линии */
-            width: 2px;
-            background-color: #f87171; /* Цвет красных полей */
-        }
-
-        /* Настройки текста, чтобы он выглядел как чернила */
-        h1, h2, p, .date {
-            font-family: 'Caveat', cursive; /* Применяем рукописный шрифт */
-            margin: 0;
-            color: #1e293b; /* Цвет темно-синих или черных чернил */
-            line-height: 32px; /* КРИТИЧЕСКИ ВАЖНО: должно совпадать с шагом линий тетради */
-        }
-
-        /* Стили для разных элементов текста */
-        h1 {
-            font-size: 36px;
-            font-weight: 700;
+        /* --- ШАПКА И ЛОГОТИП --- */
+        header {
             text-align: center;
-            margin-bottom: 32px; /* Отступ кратен 32px, чтобы не сбить шаг строк */
+            padding: 40px 20px;
+            background-color: #0a0a0a;
+            border-bottom: 2px solid #222;
         }
 
-        h2 {
-            font-size: 28px;
-            font-weight: 600;
-            margin-top: 32px;
+        .logo {
+            max-width: 180px;
+            /* Легкое свечение вокруг логотипа для выделения на черном фоне */
+            filter: drop-shadow(0 0 10px rgba(229, 115, 115, 0.3)); 
+            border-radius: 10px;
         }
 
-        .date {
-            font-size: 22px;
-            color: #64748b; /* Дата немного бледнее, словно написана другой ручкой */
-            margin-top: 32px;
+        /* --- ГЛАВНЫЙ БАННЕР --- */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            /* Фоновое атмосферное изображение леса с затемнением */
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.95)), 
+                        url('https://images.unsplash.com/photo-1542385151-efd9000785a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            border-bottom: 1px solid #333;
         }
 
-        p {
-            font-size: 24px;
-            font-weight: 400;
+        .hero h1 {
+            font-size: 3em;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 10px;
         }
 
-        /* Добавляем легкую небрежность (поворот некоторых элементов) */
-        .post {
-            margin-bottom: 64px; /* Отступ между записями кратен 32px */
+        .hero p {
+            font-size: 1.2em;
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #3e2723; /* Темно-коричневый цвет земли */
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid #5d4037;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-red);
+            border-color: var(--accent-red);
+        }
+
+        /* --- ОСНОВНОЙ КОНТЕНТ --- */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h2.section-title {
+            text-align: center;
+            border-bottom: 1px solid #444;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            font-size: 2em;
+            font-weight: normal;
+        }
+
+        /* Лента записей */
+        .post-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .post-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-left: 4px solid var(--accent-green);
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .post-card.intense { border-color: var(--accent-red); }
+        .post-card.deep { border-color: #673ab7; }
+
+        .post-date {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .post-card h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        /* Виды грибов (Информационный блок) */
+        .mushrooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .mushroom-type {
+            background-color: #1a1a1a;
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid #333;
+            border-radius: 5px;
+        }
+
+        .mushroom-type h3 {
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        
+        .type-red { color: #ff5252; }
+        .type-panther { color: #bcaaa4; }
+        .type-royal { color: #ffd54f; }
+
+        /* --- ФУТЕР --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #0a0a0a;
+            font-size: 0.9em;
+            color: #777;
+            border-top: 1px solid #222;
+        }
+
+        .disclaimer {
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+            padding: 15px;
+            border: 1px dashed #555;
+            color: #999;
+            font-size: 0.85em;
+            background-color: #111;
         }
     </style>
 </head>
 <body>
 
-    <div class="notebook-page">
-        
-        <h1>Мои записи и наблюдения</h1>
+    <header>
+        <img src="38ac25b4-a550-472e-9b7a-7d817a043046.jpg" alt="Логотип Блога" class="logo">
+    </header>
 
-        <div class="post">
-            <div class="date">28 Мая 2026, Четверг</div>
-            <h2>Проверка нового формата</h2>
-            <p>Теперь все мои мысли выглядят так, будто я пишу их от руки в своем старом блокноте. Текст автоматически подстраивается под линии, и мне не нужно ничего выравнивать самому. Цвет чернил немного неровный, что добавляет реалистичности.</p>
-            <p>Сегодня состояние ровное, просто тестирую, как ложатся слова на бумагу.</p>
+    <section class="hero">
+        <h1>Хроники Аманиты</h1>
+        <p>Документация опытов, наблюдений и трансформаций</p>
+        <a href="#journal" class="btn">Читать дневник</a>
+    </section>
+
+    <div class="container">
+        
+        <section id="journal">
+            <h2 class="section-title">Последние записи</h2>
+            
+            <div class="post-grid">
+                <div class="post-card intense">
+                    <div class="post-date">28 Мая 2026</div>
+                    <h3>Всплеск энергии и хаос</h3>
+                    <p>Пиковое состояние. Фиксация изменений в восприятии цвета и пространства. Мысли скачут, физическое напряжение нарастает.</p>
+                </div>
+                
+                <div class="post-card deep">
+                    <div class="post-date">27 Мая 2026</div>
+                    <h3>Остановка времени</h3>
+                    <p>Королевские шляпки. Глубокое погружение. Фокус полностью сместился внутрь, внешний мир стал лишь декорацией. Анализ внутренних процессов.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Виды и специфика</h2>
+            
+            <div class="mushrooms-grid">
+                <div class="mushroom-type">
+                    <h3 class="type-red">Красный мухомор</h3>
+                    <p>Мягкое воздействие, анализ и ровное течение мыслей. Снижение внутреннего диалога.</p>
+                </div>
+                <div class="mushroom-type">
+                    <h3 class="type-panther">Пантерный</h3>
+                    <p>Интенсивная энергетика, резкость и хаос. Требует предельной концентрации внимания.</p>
+                </div>
+                <div class="mushroom-type">
+                    <h3 class="type-royal">Королевский</h3>
+                    <p>Глубокое погружение, визуальные паттерны и изменение восприятия вязкости времени.</p>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+
+    <footer>
+        <div class="disclaimer">
+            ВНИМАНИЕ: Пантерные, королевские и красные мухоморы содержат сильнодействующие токсичные соединения (мусцимол, иботеновая кислота). Их влияние на центральную нервную систему крайне непредсказуемо. Сайт носит исключительно документальный характер.
         </div>
-        <div class="post">
-            <div class="date">27 Мая 2026, Среда</div>
-            <h2>Вчерашний опыт</h2>
-            <p>Вчерашний день был довольно интенсивным. Мысли переплетались, но сейчас, глядя на эти строки, кажется, что хаос укладывается в стройный текст.</p>
-        </div>
-        </div>
+        <p>© 2026 Хроники Аманиты. Фиксация личного опыта.</p>
+    </footer>
 
 </body>
 </html>
