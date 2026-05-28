@@ -1,249 +1,117 @@
-<!DOCTYPE html>
+
+   <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наше Хозяйство | Натуральные продукты</title>
+    <title>Дневник Наблюдений</title>
     <style>
-        /* Глобальные настройки и природная палитра */
-        :root {
-            --bg-color: #FAFAF5; /* Мягкий бежевый фон */
-            --text-color: #3E362E; /* Глубокий коричневый для текста */
-            --accent-green: #4A5D23; /* Приглушенный природный зеленый */
-            --accent-light: #E8EBE4; /* Светло-зеленый для выделения */
-        }
-
+        /* Базовые настройки (Глобальная темная тема) */
         body {
+            background-color: #121212; /* Мягкий черный для защиты глаз */
+            color: #e0e0e0;
+            font-family: 'Courier New', Courier, monospace; /* Стиль печатной машинки */
             margin: 0;
-            font-family: 'Georgia', serif; /* Классический шрифт для ощущения традиций */
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        h1, h2, h3 {
-            font-family: 'Arial', sans-serif;
-            font-weight: 300;
-            text-transform: uppercase;
+        h1 {
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+            font-weight: normal;
             letter-spacing: 2px;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Шапка сайта */
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: var(--bg-color);
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--accent-green);
-            letter-spacing: 4px;
-        }
-
-        nav {
-            margin-top: 20px;
-        }
-
-        nav a {
-            margin: 0 15px;
-            font-size: 14px;
-            color: var(--text-color);
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent-green);
-        }
-
-        /* Главный баннер с крупным атмосферным фото */
-        .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(62, 54, 46, 0.4), rgba(62, 54, 46, 0.4)), 
-                        url('https://images.unsplash.com/photo-1500937386664-56d1dfefcb19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-        }
-
-        .hero-content h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-
-        .hero-content p {
-            font-size: 18px;
-            font-style: italic;
-        }
-
-        /* Блок "О нас" */
-        .about {
-            max-width: 800px;
-            margin: 80px auto;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .about h2 {
-            color: var(--accent-green);
-            margin-bottom: 30px;
-        }
-
-        .about p {
-            font-size: 18px;
-            color: #555;
-        }
-
-        /* Витрина товаров */
-        .products-section {
-            background-color: var(--accent-light);
-            padding: 80px 20px;
-        }
-
-        .products-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .product-card {
-            background: #fff;
-            padding: 20px;
-            text-align: center;
-            border-radius: 4px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-image {
+        .feed {
+            max-width: 700px;
             width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 2px;
-            margin-bottom: 20px;
         }
 
-        .product-title {
-            font-size: 20px;
-            margin: 0 0 10px 0;
+        /* --- Базовый каркас для каждого дня --- */
+        .post {
+            padding: 25px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            border-left: 5px solid; /* Линия слева, цвет которой будет меняться */
+            transition: all 0.3s ease;
         }
 
-        .product-price {
-            font-size: 22px;
-            color: var(--accent-green);
-            margin-bottom: 20px;
-        }
-
-        /* Кнопка заказа (переход в мессенджер) */
-        .btn-order {
-            display: inline-block;
-            background-color: var(--accent-green);
-            color: #fff;
-            padding: 12px 30px;
-            font-family: 'Arial', sans-serif;
-            font-size: 14px;
+        .post-date {
+            font-size: 0.85em;
+            opacity: 0.6;
+            margin-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            border-radius: 2px;
-            cursor: pointer;
-            transition: background 0.3s;
         }
 
-        .btn-order:hover {
-            background-color: #3a4a1b;
+        .post h2 {
+            margin-top: 0;
+            font-size: 1.4em;
         }
 
-        /* Подвал */
-        footer {
-            text-align: center;
-            padding: 50px 20px;
-            background-color: var(--text-color);
-            color: #fff;
-            font-family: 'Arial', sans-serif;
-            font-size: 14px;
+        .post p {
+            line-height: 1.6;
         }
 
-        footer p {
-            margin: 5px 0;
-            opacity: 0.8;
+        /* --- ТЕМЫ НАСТРОЕНИЙ И СОБЫТИЙ --- */
+
+        /* 1. Спокойствие / Интеграция / Обычный день */
+        .theme-calm {
+            background-color: #1a1f1a;
+            border-color: #4caf50; /* Зеленый акцент */
+            color: #e8f5e9;
+        }
+
+        /* 2. Интенсивность / Пантерный (Сильное воздействие) */
+        .theme-intense {
+            background-color: #2a1b1b;
+            border-color: #e53935; /* Красный акцент */
+            color: #ffebee;
+        }
+
+        /* 3. Глубокое погружение / Размышления */
+        .theme-deep {
+            background-color: #1a1a2e;
+            border-color: #673ab7; /* Фиолетовый акцент */
+            color: #ede7f6;
+        }
+
+        /* 4. Туман / Спутанность мыслей / Упадок сил */
+        .theme-fog {
+            background-color: #222222;
+            border-color: #757575; /* Серый акцент */
+            color: #bdbdbd;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">ФЕРМЕРСКИЕ ПРОДУКТЫ</div>
-        <nav>
-            <a href="#about">История хозяйства</a>
-            <a href="#products">Витрина</a>
-            <a href="#contacts">Контакты</a>
-        </nav>
-    </header>
+    <h1>ХРОНИКИ НАБЛЮДЕНИЙ</h1>
 
-    <div class="hero">
-        <div class="hero-content">
-            <h1>С нашей земли — на ваш стол</h1>
-            <p>Натуральные продукты, выращенные с заботой о природе</p>
-        </div>
-    </div>
-
-    <section id="about" class="about">
-        <h2>О нашем хозяйстве</h2>
-        <p>Мы — семейная ферма, которая верит в честный ручной труд. Все наши продукты выращиваются без использования вредных химикатов, в гармонии с природой. Мы бережно относимся к земле, чтобы вы могли получать самые свежие и полезные овощи, зелень и ремесленные товары напрямую из наших рук.</p>
-    </section>
-
-    <section id="products" class="products-section">
-        <h2 style="text-align: center; color: var(--accent-green); margin-bottom: 50px;">Наша продукция</h2>
+    <div class="feed">
         
-        <div class="products-container">
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1590165482129-1b8b27698780?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Свежие овощи" class="product-image">
-                <h3 class="product-title">Корзина свежих овощей</h3>
-                <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Томаты, огурцы, зелень, собранные сегодня утром.</p>
-                <div class="product-price">1 500 ₽</div>
-                <a href="https://wa.me/79990000000?text=Здравствуйте!%20Хочу%20заказать%20Корзину%20свежих%20овощей" class="btn-order">Заказать</a>
-            </div>
+        <article class="post theme-intense">
+            <div class="post-date">28 Мая 2026</div>
+            <h2>Всплеск энергии и хаос</h2>
+            <p>Сегодняшний опыт был резким. Цвета ярче обычного, мысли скачут. Чувствую сильное напряжение в теле, записывать текст тяжело, но важно зафиксировать этот пик.</p>
+        </article>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1600189020967-17242277d1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Домашний сыр" class="product-image">
-                <h3 class="product-title">Сыр крафтовый</h3>
-                <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Полутвердый сыр из цельного молока.</p>
-                <div class="product-price">850 ₽ / кг</div>
-                <a href="https://wa.me/79990000000?text=Здравствуйте!%20Хочу%20заказать%20Крафтовый%20сыр" class="btn-order">Заказать</a>
-            </div>
+        <article class="post theme-deep">
+            <div class="post-date">27 Мая 2026</div>
+            <h2>Остановка времени</h2>
+            <p>Королевские шляпки. Фокус полностью сместился внутрь. Внешний мир кажется декорацией. Ощущение, что время течет вязко.</p>
+        </article>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1587049352847-81a56d773cac?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Фермерский мед" class="product-image">
-                <h3 class="product-title">Луговой мед</h3>
-                <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Собран на наших собственных пасеках.</p>
-                <div class="product-price">600 ₽ / банка</div>
-                <a href="https://wa.me/79990000000?text=Здравствуйте!%20Хочу%20заказать%20Луговой%20мед" class="btn-order">Заказать</a>
-            </div>
-        </div>
-    </section>
+        <article class="post theme-calm">
+            <div class="post-date">26 Мая 2026</div>
+            <h2>Интеграция опыта</h2>
+            <p>Эффекты спали. Мысли текут плавно и ясно. Анализирую вчерашние записи и пытаюсь переложить эмоции в понятные слова. Состояние ровное.</p>
+        </article>
 
-    <footer id="contacts">
-        <h3>Свяжитесь с нами</h3>
-        <p>Мы всегда рады ответить на ваши вопросы и помочь с выбором.</p>
-        <p style="margin-top: 20px; color: var(--accent-light);">Телефон / WhatsApp: +7 (999) 000-00-00</p>
-        <p style="color: var(--accent-light);">Адрес: Фермерское хозяйство, Эко-деревня</p>
-        <p style="margin-top: 40px; font-size: 12px; opacity: 0.5;">© 2026 Наше Хозяйство. Все права защищены.</p>
-    </footer>
+    </div>
 
 </body>
 </html>
