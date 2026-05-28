@@ -1,117 +1,111 @@
-
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Дневник Наблюдений</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
     <style>
-        /* Базовые настройки (Глобальная темная тема) */
+        /* Фон вокруг тетради (имитация стола) */
         body {
-            background-color: #121212; /* Мягкий черный для защиты глаз */
-            color: #e0e0e0;
-            font-family: 'Courier New', Courier, monospace; /* Стиль печатной машинки */
+            background-color: #d1d5db; /* Серый фон рабочего стола */
+            padding: 40px 20px;
             margin: 0;
-            padding: 20px;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
         }
 
-        h1 {
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-            margin-bottom: 40px;
-            font-weight: normal;
-            letter-spacing: 2px;
-        }
-
-        .feed {
-            max-width: 700px;
+        /* Сам тетрадный лист */
+        .notebook-page {
             width: 100%;
+            max-width: 800px;
+            background-color: #fdfbf7; /* Цвет слегка состаренной бумаги */
+            border-radius: 3px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            padding: 40px 30px 40px 80px; /* Отступы для текста */
+            
+            /* Рисуем синие линии тетради (шаг ровно 32px) */
+            background-image: repeating-linear-gradient(
+                transparent, 
+                transparent 31px, 
+                #a3b8cc 31px, 
+                #a3b8cc 32px
+            );
         }
 
-        /* --- Базовый каркас для каждого дня --- */
+        /* Рисуем красное поле слева */
+        .notebook-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 60px; /* Положение красной линии */
+            width: 2px;
+            background-color: #f87171; /* Цвет красных полей */
+        }
+
+        /* Настройки текста, чтобы он выглядел как чернила */
+        h1, h2, p, .date {
+            font-family: 'Caveat', cursive; /* Применяем рукописный шрифт */
+            margin: 0;
+            color: #1e293b; /* Цвет темно-синих или черных чернил */
+            line-height: 32px; /* КРИТИЧЕСКИ ВАЖНО: должно совпадать с шагом линий тетради */
+        }
+
+        /* Стили для разных элементов текста */
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 32px; /* Отступ кратен 32px, чтобы не сбить шаг строк */
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 32px;
+        }
+
+        .date {
+            font-size: 22px;
+            color: #64748b; /* Дата немного бледнее, словно написана другой ручкой */
+            margin-top: 32px;
+        }
+
+        p {
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        /* Добавляем легкую небрежность (поворот некоторых элементов) */
         .post {
-            padding: 25px;
-            margin-bottom: 40px;
-            border-radius: 8px;
-            border-left: 5px solid; /* Линия слева, цвет которой будет меняться */
-            transition: all 0.3s ease;
-        }
-
-        .post-date {
-            font-size: 0.85em;
-            opacity: 0.6;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .post h2 {
-            margin-top: 0;
-            font-size: 1.4em;
-        }
-
-        .post p {
-            line-height: 1.6;
-        }
-
-        /* --- ТЕМЫ НАСТРОЕНИЙ И СОБЫТИЙ --- */
-
-        /* 1. Спокойствие / Интеграция / Обычный день */
-        .theme-calm {
-            background-color: #1a1f1a;
-            border-color: #4caf50; /* Зеленый акцент */
-            color: #e8f5e9;
-        }
-
-        /* 2. Интенсивность / Пантерный (Сильное воздействие) */
-        .theme-intense {
-            background-color: #2a1b1b;
-            border-color: #e53935; /* Красный акцент */
-            color: #ffebee;
-        }
-
-        /* 3. Глубокое погружение / Размышления */
-        .theme-deep {
-            background-color: #1a1a2e;
-            border-color: #673ab7; /* Фиолетовый акцент */
-            color: #ede7f6;
-        }
-
-        /* 4. Туман / Спутанность мыслей / Упадок сил */
-        .theme-fog {
-            background-color: #222222;
-            border-color: #757575; /* Серый акцент */
-            color: #bdbdbd;
+            margin-bottom: 64px; /* Отступ между записями кратен 32px */
         }
     </style>
 </head>
 <body>
 
-    <h1>ХРОНИКИ НАБЛЮДЕНИЙ</h1>
-
-    <div class="feed">
+    <div class="notebook-page">
         
-        <article class="post theme-intense">
-            <div class="post-date">28 Мая 2026</div>
-            <h2>Всплеск энергии и хаос</h2>
-            <p>Сегодняшний опыт был резким. Цвета ярче обычного, мысли скачут. Чувствую сильное напряжение в теле, записывать текст тяжело, но важно зафиксировать этот пик.</p>
-        </article>
+        <h1>Мои записи и наблюдения</h1>
 
-        <article class="post theme-deep">
-            <div class="post-date">27 Мая 2026</div>
-            <h2>Остановка времени</h2>
-            <p>Королевские шляпки. Фокус полностью сместился внутрь. Внешний мир кажется декорацией. Ощущение, что время течет вязко.</p>
-        </article>
-
-        <article class="post theme-calm">
-            <div class="post-date">26 Мая 2026</div>
-            <h2>Интеграция опыта</h2>
-            <p>Эффекты спали. Мысли текут плавно и ясно. Анализирую вчерашние записи и пытаюсь переложить эмоции в понятные слова. Состояние ровное.</p>
-        </article>
-
-    </div>
+        <div class="post">
+            <div class="date">28 Мая 2026, Четверг</div>
+            <h2>Проверка нового формата</h2>
+            <p>Теперь все мои мысли выглядят так, будто я пишу их от руки в своем старом блокноте. Текст автоматически подстраивается под линии, и мне не нужно ничего выравнивать самому. Цвет чернил немного неровный, что добавляет реалистичности.</p>
+            <p>Сегодня состояние ровное, просто тестирую, как ложатся слова на бумагу.</p>
+        </div>
+        <div class="post">
+            <div class="date">27 Мая 2026, Среда</div>
+            <h2>Вчерашний опыт</h2>
+            <p>Вчерашний день был довольно интенсивным. Мысли переплетались, но сейчас, глядя на эти строки, кажется, что хаос укладывается в стройный текст.</p>
+        </div>
+        </div>
 
 </body>
 </html>
