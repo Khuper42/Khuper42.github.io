@@ -3,47 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ищу работу семейным водителем</title>
+    <title>Личный блог | Александр Махметов</title>
     <style>
-        body { font-family: 'YS Text', sans-serif; margin: 0; color: #111; line-height: 1.5; }
-        header { padding: 40px 20px; text-align: center; background: #f8f8f8; }
-        h1 { font-size: 3rem; margin-bottom: 20px; }
-        .hero-img { width: 100%; max-width: 800px; height: 300px; background: #e0e0e0; margin: 20px auto; border-radius: 12px; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        .section { display: flex; align-items: center; gap: 40px; margin-bottom: 60px; }
-        .placeholder-box { min-width: 300px; height: 200px; background: #e0e0e0; border-radius: 12px; }
-        .text-box h2 { font-size: 1.8rem; margin-top: 0; }
-        .btn { display: inline-block; padding: 15px 30px; background: #000; color: #fff; text-decoration: none; border-radius: 8px; font-weight: bold; }
-        @media (max-width: 768px) { .section { flex-direction: column; text-align: center; } }
+        /* Базовые настройки страницы */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Шапка сайта */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* Контейнер для новостей */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Сетка для колонок */
+        .news-grid {
+            display: grid;
+            /* Эта строчка делает колонки адаптивными: они сами сжимаются на телефонах и расширяются на ПК */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Карточка одной статьи */
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Анимация при наведении мышки */
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+        }
+
+        /* Постер (картинка) статьи */
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        /* Внутренние отступы для текста */
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Заголовок статьи */
+        .card-title {
+            font-size: 1.4rem;
+            margin: 0 0 1rem 0;
+            color: #2c3e50;
+        }
+
+        /* Краткое описание */
+        .card-excerpt {
+            color: #666;
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Кнопка "Читать далее" */
+        .read-more {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .read-more:hover {
+            background-color: #2980b9;
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Ищу работу семейным водителем</h1>
-    <div class="hero-img"></div>
-    <a href="https://wa.me/79990000000" class="btn">Связаться со мной</a>
-</header>
+    <header>
+        <h1>Новости и Статьи</h1>
+        <p>Мой личный блог обо всём, что мне интересно</p>
+    </header>
 
-<div class="container">
-    
-    <div class="section">
-        <div class="placeholder-box"></div>
-        <div class="text-box">
-            <h2>Подстроюсь под вас</h2>
-            <p>Решайте сами, когда мне выезжать к вам и сколько времени выполнять работу.</p>
+    <main class="container">
+        <div class="news-grid">
+
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1598514982205-f36b96d1e8dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Плов">
+                <div class="card-content">
+                    <h2 class="card-title">Секреты идеального плова</h2>
+                    <p class="card-excerpt">Делюсь проверенным процессом сильной обжарки мяса и правильной закладки овощей для настоящего среднеазиатского плова. Как добиться того самого вкуса.</p>
+                    <a href="#" class="read-more">Читать статью</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Ретро авто">
+                <div class="card-content">
+                    <h2 class="card-title">Классика: ГАЗ-24 Волга 1976 года</h2>
+                    <p class="card-excerpt">Почему серая "Волга" остается иконой стиля и мечтой коллекционеров советских ретро-автомобилей. Особенности эксплуатации в наши дни.</p>
+                    <a href="#" class="read-more">Читать статью</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Переезд">
+                <div class="card-content">
+                    <h2 class="card-title">Переезд и новые горизонты</h2>
+                    <p class="card-excerpt">Опыт переезда в другой регион: как быстро разобраться с документами и правильно переоформить номера на автомобиль без лишней бюрократии.</p>
+                    <a href="#" class="read-more">Читать статью</a>
+                </div>
+            </article>
+
         </div>
-    </div>
-
-    <div class="section">
-        <div class="text-box">
-            <h2>Помогу с делами</h2>
-            <p>Помогу с делами, привезу товар для дома, вовремя обслужу и подготовлю автомобиль.</p>
-        </div>
-        <div class="placeholder-box"></div>
-    </div>
-
-</div>
+    </main>
 
 </body>
 </html>
