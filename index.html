@@ -2,52 +2,48 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Александр Нажм-Эд-Дин | Личный водитель</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ищу работу семейным водителем</title>
     <style>
-        body { margin: 0; font-family: sans-serif; background-color: #131314; color: #e3e3e3; display: flex; height: 100vh; }
-        .sidebar { width: 280px; background-color: #1e1f20; padding: 20px; display: flex; flex-direction: column; gap: 20px; }
-        .btn-new { background: #1a1a1c; border: 1px solid #444746; color: #c2e7ff; padding: 12px; border-radius: 50px; text-decoration: none; text-align: center; }
-        .main-content { flex: 1; display: flex; flex-direction: column; padding: 40px; overflow-y: auto; }
-        .message { margin-bottom: 30px; line-height: 1.6; max-width: 800px; }
-        .user-box { background: #282a2c; padding: 15px 20px; border-radius: 20px; align-self: flex-end; margin-bottom: 20px; }
-        .ai-box { display: flex; gap: 15px; align-items: flex-start; }
-        .avatar { width: 30px; height: 30px; background: linear-gradient(135deg, #4285f4, #9b72cb); border-radius: 50%; }
-        #typing-text { white-space: pre-wrap; }
+        body { font-family: 'YS Text', sans-serif; margin: 0; color: #111; line-height: 1.5; }
+        header { padding: 40px 20px; text-align: center; background: #f8f8f8; }
+        h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero-img { width: 100%; max-width: 800px; height: 300px; background: #e0e0e0; margin: 20px auto; border-radius: 12px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .section { display: flex; align-items: center; gap: 40px; margin-bottom: 60px; }
+        .placeholder-box { min-width: 300px; height: 200px; background: #e0e0e0; border-radius: 12px; }
+        .text-box h2 { font-size: 1.8rem; margin-top: 0; }
+        .btn { display: inline-block; padding: 15px 30px; background: #000; color: #fff; text-decoration: none; border-radius: 8px; font-weight: bold; }
+        @media (max-width: 768px) { .section { flex-direction: column; text-align: center; } }
     </style>
 </head>
 <body>
 
-<div class="sidebar">
-    <a href="https://wa.me/79990000000" class="btn-new">Связаться со мной</a>
-</div>
+<header>
+    <h1>Ищу работу семейным водителем</h1>
+    <div class="hero-img"></div>
+    <a href="https://wa.me/79990000000" class="btn">Связаться со мной</a>
+</header>
 
-<div class="main-content">
-    <div class="message user-box">
-        Расскажи о себе. Какой у тебя опыт вождения и подход к работе?
-    </div>
-
-    <div class="message ai-box">
-        <div class="avatar"></div>
-        <div id="typing-text"></div>
-    </div>
-</div>
-
-<script>
-    const text = "Статус актуально: Ищу комфортную работу личным водителем.\n\nМне 29 лет. Уверенный водитель. Езжу с умом, заранее просчитывая маршрут. Из тех, кто смотрит за 100 метров вперед и просчитывает движения по полосам и светофорам. Имею базовый опыт в обслуживании автомобиля.";
-    const element = document.getElementById("typing-text");
-    let i = 0;
-
-    function typeWriter() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 30); // Скорость печати
-        }
-    }
+<div class="container">
     
-    // Запуск анимации при загрузке
-    window.onload = typeWriter;
-</script>
+    <div class="section">
+        <div class="placeholder-box"></div>
+        <div class="text-box">
+            <h2>Подстроюсь под вас</h2>
+            <p>Решайте сами, когда мне выезжать к вам и сколько времени выполнять работу.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="text-box">
+            <h2>Помогу с делами</h2>
+            <p>Помогу с делами, привезу товар для дома, вовремя обслужу и подготовлю автомобиль.</p>
+        </div>
+        <div class="placeholder-box"></div>
+    </div>
+
+</div>
 
 </body>
 </html>
