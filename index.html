@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WakeUpNeo Production | Dark Showcase</title>
+    <title>Данияр-Александр | ДАРК ЭМБИЕНТ РЕЗЮМЕ</title>
     
-    <!-- Подключаем атмосферные шрифты -->
+    <!-- Атмосферные шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
@@ -62,7 +62,7 @@
             z-index: 10;
         }
 
-        /* Базовые стили для плавающих элементов */
+        /* Базовые стили для элементов */
         .floating-item {
             position: absolute;
             text-decoration: none;
@@ -81,10 +81,40 @@
         }
 
         /* Разновидности текстов */
+        .type-main-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: clamp(1.4rem, 3.2vw, 3.2rem);
+            letter-spacing: 2px;
+            color: #ff3366;
+            text-shadow: 0 0 25px rgba(255, 51, 102, 0.6);
+            white-space: normal;
+            max-width: 850px;
+        }
+
+        .type-main-title:hover {
+            text-shadow: 0 0 40px rgba(255, 51, 102, 0.9);
+            color: #ff6688;
+        }
+
+        .type-greeting {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: clamp(1.8rem, 4vw, 4rem);
+            letter-spacing: 4px;
+            color: #00f0ff;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+
+        .type-greeting:hover {
+            text-shadow: 0 0 35px rgba(0, 240, 255, 0.9);
+            color: #66f5ff;
+        }
+
         .type-quote {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            max-width: 360px;
+            max-width: 380px;
             white-space: normal;
             font-size: clamp(0.9rem, 1.3vw, 1.1rem);
             color: rgba(255, 255, 255, 0.75);
@@ -100,7 +130,7 @@
         .type-huge {
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: clamp(1.8rem, 4.8vw, 4.8rem);
+            font-size: clamp(1.6rem, 4.2vw, 4.2rem);
             letter-spacing: -1px;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
         }
@@ -113,181 +143,10 @@
         .type-glitch {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: clamp(1.1rem, 2.6vw, 2.6rem);
+            font-size: clamp(1.1rem, 2.5vw, 2.5rem);
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .type-glitch:hover {
-            text-shadow: 0 0 20px rgba(0, 240, 255, 0.9), 0 0 40px rgba(0, 240, 255, 0.5);
-            color: #00f0ff;
-        }
-
-        .type-script {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1rem, 2vw, 1.8rem);
-            color: rgba(255, 220, 180, 0.85);
-        }
-
-        .type-script:hover {
-            text-shadow: 0 0 25px rgba(255, 180, 100, 0.9);
-            color: #ffaa55;
-        }
-
-        .type-price {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 500;
-            font-size: clamp(0.9rem, 1.6vw, 1.4rem);
-            letter-spacing: 2px;
-            opacity: 0.85;
-        }
-
-        .type-price:hover {
-            opacity: 1;
-            text-shadow: 0 0 20px rgba(180, 255, 100, 0.9);
-            color: #b4ff64;
-        }
-
-        .type-secret {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(0.9rem, 1.8vw, 1.6rem);
-            letter-spacing: 5px;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .type-secret:hover {
-            color: #ffffff;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
-        }
-
-        .subtext {
-            display: block;
-            font-size: 0.45em;
-            letter-spacing: 2px;
-            opacity: 0.65;
-            margin-top: 6px;
-            font-family: 'Space Grotesk', sans-serif;
-            text-shadow: none !important;
-        }
-
-        /* Адаптивность под мобильные телефоны */
-        @media (max-width: 768px) {
-            .floating-item {
-                position: relative !important;
-                top: auto !important;
-                left: auto !important;
-                right: auto !important;
-                bottom: auto !important;
-                display: block !important;
-                margin-bottom: 30px;
-                white-space: normal !important;
-            }
-            .universe {
-                padding-top: 90px;
-                min-height: auto;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Канвас звёздного неба -->
-    <canvas id="starfield"></canvas>
-
-    <!-- Хаотичный контент сайта-резюме -->
-    <div class="universe">
-        <div class="brand-logo">WakeUpNeo Production</div>
-
-        <!-- 1. ПРЯМАЯ ССЫЛКА НА YOUTUBE (100% открывается на GitHub) -->
-        <a href="https://www.youtube.com/watch?v=2irWWs6Gu-Y" target="_blank" class="floating-item type-huge" style="top: 14%; left: 5%;">
-            тут просто ютубчик актуальный
-            <span class="subtext">▶ САНЯ ПИТЕРСКИЙ В УРАЛЬСКЕ // БМВ Х5 (ОТКРЫТЬ В YOUTUBE)</span>
-        </a>
-
-        <!-- 2. Лор / Описание -->
-        <div class="floating-item type-quote" style="top: 10%; right: 6%;">
-            "Привет. Я продюсер, режиссер, оператор, сценарист, видеомонтажер, профессиональный водитель и вайбовый персонаж с собственным лором."
-        </div>
-
-        <!-- 3. Навыки -->
-        <div class="floating-item type-glitch" style="top: 42%; left: 5%;">
-            ретрансляция абсурда
-            <span class="subtext">иммерсивное шоу длиною в жизнь // видеомонтаж & продакшн</span>
-        </div>
-
-        <!-- 4. Винил -->
-        <div class="floating-item type-price" style="top: 38%; right: 12%;">
-            ПОДКАСТЫ (ВИНИЛ) — €89,00
-        </div>
-
-        <!-- 5. Симуляция -->
-        <div class="floating-item type-script" style="top: 66%; left: 20%;">
-            лайв симуляция / €49,00
-        </div>
-
-        <!-- 6. Телеграм -->
-        <a href="https://t.me/твой_аккаунт" target="_blank" class="floating-item type-glitch" style="top: 72%; right: 18%;">
-            ⚡ ТЕЛЕГРАМ
-            <span class="subtext">вход в матрицу €39,00</span>
-        </a>
-
-        <!-- 7. Секретный проект -->
-        <div class="floating-item type-secret" style="top: 84%; left: 6%;">
-            🔒 ТВОРЧЕСТВО [???]
-        </div>
-
-        <!-- 8. Авторская подпись -->
-        <div class="floating-item type-script" style="top: 28%; left: 42%;">
-            ~ Твой любимый Данияр-Александр
-        </div>
-
-        <!-- 9. Поиск проектов -->
-        <div class="floating-item type-quote" style="top: 78%; right: 6%;">
-            Ищу проекты, сотрудничество и новый опыт. В одиночку справиться сложно.
-        </div>
-    </div>
-
-    <script>
-        // Простой и стабильный Canvas скрипт (без тяжелой логики)
-        const canvas = document.getElementById('starfield');
-        const ctx = canvas.getContext('2d');
-        let stars = [];
-
-        function initCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            stars = [];
-            const count = Math.floor((canvas.width * canvas.height) / 5000);
-            for (let i = 0; i < count; i++) {
-                stars.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    size: Math.random() * 1.5 + 0.3,
-                    alpha: Math.random(),
-                    speed: Math.random() * 0.02 + 0.005
-                });
-            }
-        }
-
-        function draw() {
-            ctx.fillStyle = '#030308';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            stars.forEach(s => {
-                s.alpha += s.speed;
-                if (s.alpha > 1 || s.alpha < 0) s.speed = -s.speed;
-                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(s.alpha)})`;
-                ctx.beginPath();
-                ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-                ctx.fill();
-            });
-
-            requestAnimationFrame(draw);
-        }
-
-        window.addEventListener('resize', initCanvas);
-        initCanvas();
-        draw();
-    </script>
-</body>
-</html>
+            text-shadow: 0 0 20px rgba(0,
