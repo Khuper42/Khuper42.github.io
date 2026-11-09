@@ -111,14 +111,16 @@
         }
 
         /* Контейнер для встраивания Instagram */
-        .instagram-embed-box {
-            position: absolute;
-            top: 42%;
-            left: 36%;
-            max-width: 350px;
-            width: 100%;
-            z-index: 20;
-            pointer-events: auto;
+    .instagram-embed-box {
+    position: absolute;
+    bottom: 40px;      /* Отступ от самого низа страницы */
+    left: 50%;         /* Выравнивание ровно по центру горизонтали */
+    transform: translateX(-50%); /* Точная центровка */
+    max-width: 350px;
+    width: 100%;
+    z-index: 20;
+    pointer-events: auto;
+}
         }
 
         .instagram-embed-box blockquote {
