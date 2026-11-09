@@ -36,9 +36,9 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: #030308 radial-gradient(circle at 20% 30%, rgba(120, 20, 180, 0.15), transparent 40%),
-                        radial-gradient(circle at 80% 70%, rgba(20, 100, 200, 0.12), transparent 45%),
-                        radial-gradient(circle at 50% 50%, rgba(200, 30, 60, 0.08), transparent 35%);
+            background: #030308 radial-gradient(circle at 20% 30%, rgba(120, 20, 180, 0.2), transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(20, 100, 200, 0.15), transparent 45%),
+                        radial-gradient(circle at 50% 50%, rgba(200, 30, 60, 0.1), transparent 35%);
             z-index: 0;
             pointer-events: none;
         }
@@ -52,3 +52,242 @@
             height: 100%;
             background-image: 
                 radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 40px 70px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 160px 120px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2.5px 2.5px at 230px 190px, rgba(255,255,255,0.85), rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 310px 80px, #ffffff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 350px 350px;
+            opacity: 0.6;
+            animation: starsTwinkle 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes starsTwinkle {
+            0% { opacity: 0.4; }
+            100% { opacity: 0.8; }
+        }
+
+        /* Контейнер элементов */
+        .universe {
+            position: relative;
+            width: 100vw;
+            min-height: 100vh;
+            z-index: 2;
+            padding: 30px;
+        }
+
+        .brand-logo {
+            position: absolute;
+            top: 30px;
+            left: 35px;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+            letter-spacing: 4px;
+            color: rgba(255, 255, 255, 0.45);
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        /* Плавающие тексты */
+        .floating-item {
+            position: absolute;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.9);
+            transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+            white-space: nowrap;
+            line-height: 1.2;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .floating-item:hover {
+            color: #ffffff;
+            z-index: 100 !important;
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        /* Стили шрифтов */
+        .type-greeting {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: clamp(1.8rem, 3.8vw, 3.8rem);
+            letter-spacing: 4px;
+            color: #00f0ff;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+
+        .type-greeting:hover {
+            text-shadow: 0 0 35px rgba(0, 240, 255, 0.9);
+            color: #66f5ff;
+        }
+
+        .type-main-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: clamp(1.4rem, 2.8vw, 2.8rem);
+            letter-spacing: 2px;
+            color: #ff3366;
+            text-shadow: 0 0 25px rgba(255, 51, 102, 0.6);
+            white-space: normal;
+            max-width: 850px;
+        }
+
+        .type-main-title:hover {
+            text-shadow: 0 0 40px rgba(255, 51, 102, 0.9);
+            color: #ff6688;
+        }
+
+        .type-huge {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: clamp(1.6rem, 3.8vw, 3.8rem);
+            letter-spacing: -1px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+        }
+
+        .type-huge:hover {
+            text-shadow: 0 0 30px rgba(255, 50, 50, 0.9), 0 0 60px rgba(255, 0, 0, 0.5);
+            color: #ff4d4d;
+        }
+
+        .type-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            max-width: 420px;
+            white-space: normal;
+            font-size: clamp(0.95rem, 1.35vw, 1.15rem);
+            color: rgba(255, 255, 255, 0.85);
+            border-left: 2px solid rgba(255, 255, 255, 0.3);
+            padding-left: 14px;
+        }
+
+        .type-quote:hover {
+            border-left-color: #ff3366;
+            color: #ffffff;
+        }
+
+        .type-glitch {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.1rem, 2.3vw, 2.3rem);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .type-glitch:hover {
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.9), 0 0 40px rgba(0, 240, 255, 0.5);
+            color: #00f0ff;
+        }
+
+        .type-script {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.1rem, 2vw, 1.8rem);
+            color: rgba(255, 220, 180, 0.9);
+        }
+
+        .type-script:hover {
+            text-shadow: 0 0 25px rgba(255, 180, 100, 0.9);
+            color: #ffaa55;
+        }
+
+        .type-clean {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: clamp(0.95rem, 1.5vw, 1.4rem);
+            letter-spacing: 2px;
+            opacity: 0.85;
+        }
+
+        .type-clean:hover {
+            opacity: 1;
+            text-shadow: 0 0 20px rgba(180, 255, 100, 0.9);
+            color: #b4ff64;
+        }
+
+        .subtext {
+            display: block;
+            font-size: 0.45em;
+            letter-spacing: 2px;
+            opacity: 0.65;
+            margin-top: 6px;
+            font-family: 'Space Grotesk', sans-serif;
+            text-shadow: none !important;
+        }
+
+        /* Адаптив под мобильные устройства */
+        @media (max-width: 768px) {
+            .floating-item {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                display: block !important;
+                margin-bottom: 30px;
+                white-space: normal !important;
+            }
+            .universe {
+                padding-top: 90px;
+                padding-bottom: 50px;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Звёздное небо -->
+    <div class="stars-bg"></div>
+
+    <div class="universe">
+        <div class="brand-logo">WakeUpNeo Production</div>
+
+        <!-- 1. ПРИВЕТСТВИЕ -->
+        <div class="floating-item type-greeting" style="top: 8%; left: 5%;">
+            СТУДИЯ ЖИИИР, ПРИВЕТ
+        </div>
+
+        <!-- 2. ИМЯ -->
+        <div class="floating-item type-script" style="top: 17%; left: 5%;">
+            Я Данияр-Александр ~
+        </div>
+
+        <!-- 3. ЛОКАЦИЯ -->
+        <div class="floating-item type-clean" style="top: 8%; right: 8%;">
+            📍 НАХОЖУСЬ В АЛМАТЕ
+            <span class="subtext">LOCATION // ALMATY KAZAKHSTAN</span>
+        </div>
+
+        <!-- 4. ОПИСАНИЕ СКИЛЛОВ -->
+        <div class="floating-item type-quote" style="top: 24%; right: 6%;">
+            "Что-то да знаю в монтаже видео и есть вкус в подборе кадров и сцен. Пробую разные форматы съемок — делаю все на ezычах."
+        </div>
+
+        <!-- 5. ХАРД СКИЛЛ (АВТО) -->
+        <div class="floating-item type-main-title" style="top: 38%; left: 5%;">
+            МОЙ ХАРД СКИЛЛ ПРОЯВЛЯЕТСЯ В ВОЖДЕНИИ АВТО
+            <span class="subtext" style="font-size: 0.38em; margin-top: 8px;">тематика роликов связана с вайбовым вождением и интересом к тачкам</span>
+        </div>
+
+        <!-- 6. ЛАЙВ СИМУЛЭЙШН (Портфолио) -->
+        <a href="https://www.youtube.com/watch?v=zTtX2RVLGzU" target="_blank" rel="noopener" class="floating-item type-huge" style="top: 58%; left: 5%;">
+            ЛАЙВ СИМУЛЭЙШН
+            <span class="subtext">▶ ПОРТФОЛИО ДЛЯ "ЖИР" // YOUTUBE</span>
+        </a>
+
+        <!-- 7. ТЕЛЕГРАМ -->
+        <a href="https://t.me/UlyanaGluhomaniaAkaSativa" target="_blank" rel="noopener" class="floating-item type-glitch" style="top: 60%; right: 8%;">
+            ⚡ ТЕЛЕГРАМ-КОНТАКТ
+            <span class="subtext">@UlyanaGluhomaniaAkaSativa // НАПИСАТЬ</span>
+        </a>
+
+        <!-- 8. INSTAGRAM REELS (Чистая ссылка-кнопка) -->
+        <a href="https://www.instagram.com/reel/DdoUSkFOB6P/" target="_blank" rel="noopener" class="floating-item type-script" style="top: 78%; left: 5%;">
+            🔮 INSTAGRAM REELS // ВАЙБ
+            <span class="subtext">▶ СМОТРЕТЬ РИЛС В INSTAGRAM</span>
+        </a>
+    </div>
+
+</body>
+</html>
