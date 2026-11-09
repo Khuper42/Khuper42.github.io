@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Showcase Project</title>
+    <title>Dark Showcase Project | WakeUpNeo Production</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Подключаем атмосферный шрифт с Google Fonts -->
+    <!-- Атмосферные шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -14,8 +14,8 @@
     <header class="site-header">
         <div class="logo">WakeUpNeo Production</div>
         <nav class="nav-links">
-            <a href="#tour">тут что-то будет</a>
-            <a href="#merch">в процессе</a>
+            <a href="#youtube">YOUTUBE</a>
+            <a href="#showcase">ВИТРИНА</a>
             <a href="#lang">RU / EN</a>
         </nav>
     </header>
@@ -24,32 +24,43 @@
     <main class="hero-section">
         <div class="intro-box">
             <p class="greeting">Привет.</p>
-            <p class="author">Я продюсер, режиссер, оператор, сценарист, блогер. .</p>
+            <p class="author">Я продюсер, режиссер, оператор, сценарист, блогер.</p>
             
             <p class="story-text">
-                Я видеомонтажер. <span class="highlight">профессиональный водитель и просто вайбовый персонаж с собственным лором.</span> 
-                МОЯ ЖИЗНЬ - КАК РЕТРОНСЛЯЦИЯ АБСУРДА, как иммерсивное шоу.
+                Я видеомонтажер. <span class="highlight">Профессиональный водитель и просто вайбовый персонаж с собственным лором.</span> 
+                МОЯ ЖИЗНЬ - КАК РЕТРАНСЛЯЦИЯ АБСУРДА, как иммерсивное шоу.
             </p>
             <p class="story-text">
-                ...но в одиночку справиться сложно. Ищу проекты, сотрудничество и новый опыт 
+                ...но в одиночку справиться сложно. Ищу проекты, сотрудничество и новый опыт.
             </p>
             
             <p class="signature">Твой любимый Данияр-Александр</p>
         </div>
 
-        <!-- Витрина карточек (товары / релизы / секретные лоты) -->
-        <section class="showcase-grid">
+        <!-- Витрина карточек -->
+        <section id="showcase" class="showcase-grid">
             
-            <!-- Карточка 1 -->
+            <!-- Карточка 1: Винил -->
             <div class="card">
                 <div class="card-frame">
-                    <img src="autor666.png" alt="Vinyl"> <!-- Используйте ваши картинки -->
+                    <img src="autor666.png" alt="Vinyl">
                 </div>
-                <div class="card-title">ПОДКСТЫ (ВИНИЛ)</div>
+                <div class="card-title">ПОДКАСТЫ (ВИНИЛ)</div>
                 <div class="card-price">€89,00</div>
             </div>
 
-            <!-- Карточка 2 -->
+            <!-- Карточка 2: YouTube-канал (Переход на видео) -->
+            <div class="card">
+                <a href="https://www.youtube.com/watch?v=2irWWs6Gu-Y" target="_blank" class="card-link">
+                    <div class="card-frame youtube-frame">
+                        <span class="yt-icon">▶</span>
+                    </div>
+                    <div class="card-title">САНЯ ПИТЕРСКИЙ</div>
+                    <div class="card-price">БМВ Х5 В УРАЛЬСКЕ</div>
+                </a>
+            </div>
+
+            <!-- Карточка 3: Лайв симуляция -->
             <div class="card">
                 <div class="card-frame mystery">
                     <span class="question-mark">?</span>
@@ -58,7 +69,7 @@
                 <div class="card-price">€49,00</div>
             </div>
 
-            <!-- Карточка 3 -->
+            <!-- Карточка 4: Телеграм -->
             <div class="card">
                 <div class="card-frame">
                     <div class="creature-art">⚡</div>
@@ -67,7 +78,7 @@
                 <div class="card-price">€39,00</div>
             </div>
 
-            <!-- Карточка 4 -->
+            <!-- Карточка 5: Творчество -->
             <div class="card">
                 <div class="card-frame coming">
                     <span class="lock-icon">🔒</span>
@@ -76,6 +87,20 @@
                 <div class="card-price">???</div>
             </div>
 
+        </section>
+
+        <!-- Блок со встроенным YouTube-плеером -->
+        <section id="youtube" class="video-section">
+            <h2 class="section-title">САНЯ ПИТЕРСКИЙ В УРАЛЬСКЕ. ПЕРВЫЙ ДЕНЬ ВЛАДЕНИЯ БМВ Х5</h2>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/2irWWs6Gu-Y" 
+                    title="САНЯ ПИТЕРСКИЙ В УРАЛЬСКЕ. ПЕРВЫЙ ДЕНЬ ВЛАДЕНИЯ БМВ Х5" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
         </section>
     </main>
 
