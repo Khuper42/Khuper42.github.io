@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -108,26 +105,6 @@
             color: #ffffff;
             z-index: 100 !important;
             transform: translateY(-3px) scale(1.02);
-        }
-
-        /* Контейнер для встраивания Instagram */
-    .instagram-embed-box {
-    position: absolute;
-    bottom: 40px;      /* Отступ от самого низа страницы */
-    left: 50%;         /* Выравнивание ровно по центру горизонтали */
-    transform: translateX(-50%); /* Точная центровка */
-    max-width: 350px;
-    width: 100%;
-    z-index: 20;
-    pointer-events: auto;
-}
-        }
-
-        .instagram-embed-box blockquote {
-            margin: 0 !important;
-            border-radius: 12px !important;
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.2) !important;
-            border: 1px solid rgba(255, 255, 255, 0.15) !important;
         }
 
         /* Стили шрифтов */
@@ -250,7 +227,7 @@
             text-shadow: none !important;
         }
 
-        /* Адаптив под мобильные устройства */
+        /* Адаптив под мобилки */
         @media (max-width: 768px) {
             .floating-item {
                 position: relative !important;
@@ -262,13 +239,6 @@
                 margin-bottom: 25px;
                 white-space: normal !important;
             }
-            .instagram-embed-box {
-                position: relative !important;
-                top: auto !important;
-                left: auto !important;
-                margin: 30px auto;
-                max-width: 100%;
-            }
             .universe {
                 padding-top: 80px;
                 min-height: auto;
@@ -278,81 +248,72 @@
 </head>
 <body>
 
-    <!-- Звёздное небо -->
+    <!-- CSS Звёздное небо (гарантия загрузки 100%) -->
     <div class="stars-bg"></div>
 
     <div class="universe">
         <div class="brand-logo">WakeUpNeo Production</div>
 
         <!-- 1. ПРИВЕТСТВИЕ -->
-        <div class="floating-item type-greeting" style="top: 6%; left: 5%;">
+        <div class="floating-item type-greeting" style="top: 8%; left: 5%;">
             ПРИВЕТ "ЖИИИР" СТУДИЯ
         </div>
 
         <!-- 2. ДАРК ЭМБИЕНТ РЕЗЮМЕ -->
-        <div class="floating-item type-main-title" style="top: 15%; left: 5%;">
+        <div class="floating-item type-main-title" style="top: 18%; left: 5%;">
             ДАРК ЭМБИЕНТ РЕЗЮМЕ ДЛЯ РУКОВОДИТЕЛЯ ОТДЕЛА МОНТАЖА
         </div>
 
         <!-- 3. ЛАЙВ СИМУЛЭЙШН -->
-        <a href="https://www.youtube.com/watch?v=zTtX2RVLGzU" target="_blank" class="floating-item type-huge" style="top: 32%; left: 5%;">
+        <a href="https://www.youtube.com/watch?v=zTtX2RVLGzU" target="_blank" class="floating-item type-huge" style="top: 36%; left: 5%;">
             ЛАЙВ СИМУЛЭЙШН
             <span class="subtext">▶ СМОТРЕТЬ НА YOUTUBE</span>
         </a>
 
         <!-- 4. ЮТУБЧИК (БМВ Х5) -->
-        <a href="https://www.youtube.com/watch?v=2irWWs6Gu-Y" target="_blank" class="floating-item type-script" style="top: 32%; right: 8%;">
+        <a href="https://www.youtube.com/watch?v=2irWWs6Gu-Y" target="_blank" class="floating-item type-script" style="top: 38%; right: 8%;">
             тут просто ютубчик актуальный ~
             <span class="subtext">▶ САНЯ ПИТЕРСКИЙ В УРАЛЬСКЕ // БМВ Х5</span>
         </a>
 
-        <!-- 5. ВСТРОЕННЫЙ INSTAGRAM REELS -->
-        <div class="instagram-embed-box">
-            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DdoUSkFOB6P/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-        </div>
-
-        <!-- 6. Лор -->
-        <div class="floating-item type-quote" style="top: 8%; right: 6%;">
+        <!-- 5. Лор -->
+        <div class="floating-item type-quote" style="top: 10%; right: 6%;">
             "Привет. Я продюсер, режиссер, оператор, сценарист, видеомонтажер, профессиональный водитель и вайбовый персонаж с собственным лором."
         </div>
 
-        <!-- 7. Навыки & Абсурд -->
-        <div class="floating-item type-glitch" style="top: 56%; left: 5%;">
+        <!-- 6. Абсурд / Навыки -->
+        <div class="floating-item type-glitch" style="top: 54%; left: 5%;">
             ретрансляция абсурда
             <span class="subtext">иммерсивное шоу длиною в жизнь // видеомонтаж & продакшн</span>
         </div>
 
-        <!-- 8. ТЕЛЕЖКА -->
-        <a href="https://t.me/UlyanaGluhomaniaAkaSativa" target="_blank" class="floating-item type-glitch" style="top: 75%; right: 8%;">
+        <!-- 7. ТЕЛЕЖКА -->
+        <a href="https://t.me/UlyanaGluhomaniaAkaSativa" target="_blank" class="floating-item type-glitch" style="top: 68%; right: 10%;">
             ⚡ ТЕЛЕЖКА: @UlyanaGluhomaniaAkaSativa
             <span class="subtext">НАЖМИ, ЧТОБЫ НАПИСАТЬ В TELEGRAM</span>
         </a>
 
-        <!-- 9. ПОДКАСТЫ -->
-        <div class="floating-item type-clean" style="top: 72%; left: 5%;">
+        <!-- 8. ПОДКАСТЫ -->
+        <div class="floating-item type-clean" style="top: 66%; left: 22%;">
             ПОДКАСТЫ
             <span class="subtext">(еще не созданы / в процессе)</span>
         </div>
 
-        <!-- 10. Секретный лот -->
-        <div class="floating-item type-secret" style="top: 86%; left: 5%;">
+        <!-- 9. Секретный лот -->
+        <div class="floating-item type-secret" style="top: 82%; left: 6%;">
             🔒 ТВОРЧЕСТВО [???]
         </div>
 
-        <!-- 11. Авторская подпись -->
-        <div class="floating-item type-script" style="top: 25%; left: 45%;">
+        <!-- 10. Автор -->
+        <div class="floating-item type-script" style="top: 52%; right: 35%;">
             ~ Твой любимый Данияр-Александр
         </div>
 
-        <!-- 12. Цель -->
-        <div class="floating-item type-quote" style="top: 85%; right: 8%;">
+        <!-- 11. Цель -->
+        <div class="floating-item type-quote" style="top: 80%; right: 6%;">
             Ищу проекты, сотрудничество и новый опыт. В одиночку справиться сложно.
         </div>
     </div>
 
-    <!-- Скрипт встраивания Instagram -->
-    <script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
-
-```
