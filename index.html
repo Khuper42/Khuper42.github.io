@@ -29,18 +29,46 @@
             position: relative;
         }
 
-        /* Канвас со звёздами */
-        #starfield {
+        /* Звёздный фон на чистом CSS */
+        .stars-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
+            background: #030308 radial-gradient(circle at 20% 30%, rgba(120, 20, 180, 0.15), transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(20, 100, 200, 0.12), transparent 45%),
+                        radial-gradient(circle at 50% 50%, rgba(200, 30, 60, 0.08), transparent 35%);
             z-index: 0;
             pointer-events: none;
         }
 
-        /* Хаотичное пространство элементов */
+        .stars-bg::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 40px 70px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 160px 120px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2.5px 2.5px at 230px 190px, rgba(255,255,255,0.85), rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 310px 80px, #ffffff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 350px 350px;
+            opacity: 0.6;
+            animation: starsTwinkle 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes starsTwinkle {
+            0% { opacity: 0.4; }
+            100% { opacity: 0.8; }
+        }
+
+        /* Контейнер элементов */
         .universe {
             position: relative;
             width: 100vw;
@@ -49,7 +77,6 @@
             padding: 30px;
         }
 
-        /* Логотип */
         .brand-logo {
             position: absolute;
             top: 30px;
@@ -62,12 +89,12 @@
             z-index: 10;
         }
 
-        /* Базовые стили для элементов */
+        /* Плавающие тексты */
         .floating-item {
             position: absolute;
             text-decoration: none;
             color: rgba(255, 255, 255, 0.9);
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), color 0.3s ease, text-shadow 0.3s ease;
+            transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
             white-space: nowrap;
             line-height: 1.2;
             display: inline-block;
@@ -77,26 +104,10 @@
         .floating-item:hover {
             color: #ffffff;
             z-index: 100 !important;
-            transform: scale(1.04);
+            transform: translateY(-3px) scale(1.02);
         }
 
-        /* Разновидности текстов */
-        .type-main-title {
-            font-family: 'Cinzel', serif;
-            font-weight: 900;
-            font-size: clamp(1.4rem, 3.2vw, 3.2rem);
-            letter-spacing: 2px;
-            color: #ff3366;
-            text-shadow: 0 0 25px rgba(255, 51, 102, 0.6);
-            white-space: normal;
-            max-width: 850px;
-        }
-
-        .type-main-title:hover {
-            text-shadow: 0 0 40px rgba(255, 51, 102, 0.9);
-            color: #ff6688;
-        }
-
+        /* Стили шрифтов */
         .type-greeting {
             font-family: 'Cinzel', serif;
             font-weight: 900;
@@ -109,6 +120,35 @@
         .type-greeting:hover {
             text-shadow: 0 0 35px rgba(0, 240, 255, 0.9);
             color: #66f5ff;
+        }
+
+        .type-main-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: clamp(1.4rem, 3vw, 3rem);
+            letter-spacing: 2px;
+            color: #ff3366;
+            text-shadow: 0 0 25px rgba(255, 51, 102, 0.6);
+            white-space: normal;
+            max-width: 850px;
+        }
+
+        .type-main-title:hover {
+            text-shadow: 0 0 40px rgba(255, 51, 102, 0.9);
+            color: #ff6688;
+        }
+
+        .type-huge {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: clamp(1.6rem, 4vw, 4rem);
+            letter-spacing: -1px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+        }
+
+        .type-huge:hover {
+            text-shadow: 0 0 30px rgba(255, 50, 50, 0.9), 0 0 60px rgba(255, 0, 0, 0.5);
+            color: #ff4d4d;
         }
 
         .type-quote {
@@ -127,26 +167,14 @@
             color: #ffffff;
         }
 
-        .type-huge {
-            font-family: 'Cinzel', serif;
-            font-weight: 900;
-            font-size: clamp(1.6rem, 4.2vw, 4.2rem);
-            letter-spacing: -1px;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
-        }
-
-        .type-huge:hover {
-            text-shadow: 0 0 30px rgba(255, 50, 50, 0.9), 0 0 60px rgba(255, 0, 0, 0.5);
-            color: #ff4d4d;
-        }
-
         .type-glitch {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: clamp(1.1rem, 2.5vw, 2.5rem);
+            font-size: clamp(1.1rem, 2.4vw, 2.4rem);
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .type-glitch:hover {
-            text-shadow: 0 0 20px rgba(0,
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.9), 0 0 40px rgba(0, 240, 255, 0.5);
+            color: #0
