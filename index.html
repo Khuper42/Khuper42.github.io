@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WakeUpNeo Production | Dark Aesthetic Showcase</title>
+    <title>WakeUpNeo Production</title>
     <!-- Атмосферные шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -13,25 +15,27 @@
             padding: 0;
             box-sizing: border-box;
             user-select: none;
+            -webkit-user-select: none;
         }
 
-        body, html {
+        html, body {
             width: 100%;
-            height: 100%;
-            overflow: hidden;
+            min-height: 100vh;
             background-color: #030308;
             color: #ffffff;
             font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        /* Канвас со звёздным небом */
+        /* Канвас со звёздным небом на заднем плане */
         #starfield {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: 1;
+            z-index: 0;
             pointer-events: none;
         }
 
@@ -39,14 +43,194 @@
         .universe {
             position: relative;
             width: 100vw;
-            height: 100vh;
+            min-height: 100vh;
             z-index: 2;
+            padding: 20px;
         }
 
         /* Заголовок-логотип */
         .brand-logo {
             position: absolute;
-            top: 4%;
-            left: 5%;
+            top: 25px;
+            left: 25px;
             font-family: 'Cinzel', serif;
-            font-size
+            font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+            letter-spacing: 4px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        /* Текстовые элементы */
+        .floating-item {
+            position: absolute;
+            cursor: pointer;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.9);
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            white-space: nowrap;
+            line-height: 1.2;
+            display: inline-block;
+            will-change: transform;
+        }
+
+        .floating-item:hover {
+            color: #ffffff;
+            z-index: 100 !important;
+        }
+
+        /* Стилевые разновидности текста */
+        .type-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            max-width: 340px;
+            white-space: normal;
+            font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+            color: rgba(255, 255, 255, 0.7);
+            border-left: 2px solid rgba(255, 255, 255, 0.3);
+            padding-left: 14px;
+        }
+
+        .type-quote:hover {
+            border-left-color: #ff3366;
+            color: #ffffff;
+        }
+
+        .type-huge {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: clamp(2rem, 5.5vw, 5.5rem);
+            letter-spacing: -1px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+        }
+
+        .type-huge:hover {
+            text-shadow: 0 0 30px rgba(255, 50, 50, 0.9), 0 0 60px rgba(255, 0, 0, 0.5);
+            color: #ff4d4d;
+        }
+
+        .type-glitch {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.2rem, 3vw, 3rem);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .type-glitch:hover {
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.9), 0 0 40px rgba(0, 240, 255, 0.5);
+            color: #00f0ff;
+        }
+
+        .type-script {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.1rem, 2.2vw, 2rem);
+            color: rgba(255, 220, 180, 0.85);
+        }
+
+        .type-script:hover {
+            text-shadow: 0 0 25px rgba(255, 180, 100, 0.9);
+            color: #ffaa55;
+        }
+
+        .type-price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: clamp(0.9rem, 1.8vw, 1.6rem);
+            letter-spacing: 2px;
+            opacity: 0.85;
+        }
+
+        .type-price:hover {
+            opacity: 1;
+            text-shadow: 0 0 20px rgba(180, 255, 100, 0.9);
+            color: #b4ff64;
+        }
+
+        .type-secret {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.9rem, 2vw, 1.8rem);
+            letter-spacing: 5px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .type-secret:hover {
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+        }
+
+        .subtext {
+            display: block;
+            font-size: 0.45em;
+            letter-spacing: 2px;
+            opacity: 0.65;
+            margin-top: 6px;
+            font-family: 'Space Grotesk', sans-serif;
+            text-shadow: none !important;
+        }
+
+        /* Модальное окно для YouTube */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(3, 3, 8, 0.94);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 960px;
+            aspect-ratio: 16 / 9;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 2.2rem;
+            cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: #ff3366;
+        }
+
+        /* Мобильная адаптация позиционирования */
+        @media (max-width: 768px) {
+            .floating-item {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
