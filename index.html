@@ -29,46 +29,18 @@
             position: relative;
         }
 
-        /* Звёздный фон на чистом CSS */
-        .stars-bg {
+        /* Канвас со звёздами */
+        #starfield {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: #030308 radial-gradient(circle at 20% 30%, rgba(120, 20, 180, 0.15), transparent 40%),
-                        radial-gradient(circle at 80% 70%, rgba(20, 100, 200, 0.12), transparent 45%),
-                        radial-gradient(circle at 50% 50%, rgba(200, 30, 60, 0.08), transparent 35%);
             z-index: 0;
             pointer-events: none;
         }
 
-        .stars-bg::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(1.5px 1.5px at 40px 70px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 90px 40px, rgba(255,255,255,0.9), rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 160px 120px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2.5px 2.5px at 230px 190px, rgba(255,255,255,0.85), rgba(0,0,0,0)),
-                radial-gradient(1.5px 1.5px at 310px 80px, #ffffff, rgba(0,0,0,0));
-            background-repeat: repeat;
-            background-size: 350px 350px;
-            opacity: 0.6;
-            animation: starsTwinkle 4s ease-in-out infinite alternate;
-        }
-
-        @keyframes starsTwinkle {
-            0% { opacity: 0.4; }
-            100% { opacity: 0.8; }
-        }
-
-        /* Контейнер элементов */
+        /* Хаотичное пространство элементов */
         .universe {
             position: relative;
             width: 100vw;
@@ -77,6 +49,7 @@
             padding: 30px;
         }
 
+        /* Логотип */
         .brand-logo {
             position: absolute;
             top: 30px;
@@ -89,12 +62,12 @@
             z-index: 10;
         }
 
-        /* Плавающие тексты */
+        /* Базовые стили для элементов */
         .floating-item {
             position: absolute;
             text-decoration: none;
             color: rgba(255, 255, 255, 0.9);
-            transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), color 0.3s ease, text-shadow 0.3s ease;
             white-space: nowrap;
             line-height: 1.2;
             display: inline-block;
@@ -104,28 +77,14 @@
         .floating-item:hover {
             color: #ffffff;
             z-index: 100 !important;
-            transform: translateY(-3px) scale(1.02);
+            transform: scale(1.04);
         }
 
-        /* Стили шрифтов */
-        .type-greeting {
-            font-family: 'Cinzel', serif;
-            font-weight: 900;
-            font-size: clamp(1.8rem, 4vw, 4rem);
-            letter-spacing: 4px;
-            color: #00f0ff;
-            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
-        }
-
-        .type-greeting:hover {
-            text-shadow: 0 0 35px rgba(0, 240, 255, 0.9);
-            color: #66f5ff;
-        }
-
+        /* Разновидности текстов */
         .type-main-title {
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: clamp(1.4rem, 3vw, 3rem);
+            font-size: clamp(1.4rem, 3.2vw, 3.2rem);
             letter-spacing: 2px;
             color: #ff3366;
             text-shadow: 0 0 25px rgba(255, 51, 102, 0.6);
@@ -138,17 +97,18 @@
             color: #ff6688;
         }
 
-        .type-huge {
+        .type-greeting {
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: clamp(1.6rem, 4vw, 4rem);
-            letter-spacing: -1px;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+            font-size: clamp(1.8rem, 4vw, 4rem);
+            letter-spacing: 4px;
+            color: #00f0ff;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
         }
 
-        .type-huge:hover {
-            text-shadow: 0 0 30px rgba(255, 50, 50, 0.9), 0 0 60px rgba(255, 0, 0, 0.5);
-            color: #ff4d4d;
+        .type-greeting:hover {
+            text-shadow: 0 0 35px rgba(0, 240, 255, 0.9);
+            color: #66f5ff;
         }
 
         .type-quote {
@@ -167,14 +127,207 @@
             color: #ffffff;
         }
 
+        .type-huge {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: clamp(1.6rem, 4.2vw, 4.2rem);
+            letter-spacing: -1px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+        }
+
+        .type-huge:hover {
+            text-shadow: 0 0 30px rgba(255, 50, 50, 0.9), 0 0 60px rgba(255, 0, 0, 0.5);
+            color: #ff4d4d;
+        }
+
         .type-glitch {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: clamp(1.1rem, 2.4vw, 2.4rem);
+            font-size: clamp(1.1rem, 2.5vw, 2.5rem);
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .type-glitch:hover {
             text-shadow: 0 0 20px rgba(0, 240, 255, 0.9), 0 0 40px rgba(0, 240, 255, 0.5);
-            color: #0
+            color: #00f0ff;
+        }
+
+        .type-script {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 2vw, 1.8rem);
+            color: rgba(255, 220, 180, 0.85);
+        }
+
+        .type-script:hover {
+            text-shadow: 0 0 25px rgba(255, 180, 100, 0.9);
+            color: #ffaa55;
+        }
+
+        .type-clean {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: clamp(0.9rem, 1.6vw, 1.4rem);
+            letter-spacing: 2px;
+            opacity: 0.75;
+        }
+
+        .type-clean:hover {
+            opacity: 1;
+            text-shadow: 0 0 20px rgba(180, 255, 100, 0.9);
+            color: #b4ff64;
+        }
+
+        .type-secret {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.9rem, 1.8vw, 1.6rem);
+            letter-spacing: 5px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .type-secret:hover {
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+        }
+
+        .subtext {
+            display: block;
+            font-size: 0.45em;
+            letter-spacing: 2px;
+            opacity: 0.65;
+            margin-top: 6px;
+            font-family: 'Space Grotesk', sans-serif;
+            text-shadow: none !important;
+        }
+
+        /* Адаптивность под мобильные телефоны */
+        @media (max-width: 768px) {
+            .floating-item {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                display: block !important;
+                margin-bottom: 30px;
+                white-space: normal !important;
+            }
+            .universe {
+                padding-top: 90px;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Канвас звёздного неба -->
+    <canvas id="starfield"></canvas>
+
+    <!-- Хаотичный контент сайта-резюме -->
+    <div class="universe">
+        <div class="brand-logo">WakeUpNeo Production</div>
+
+        <!-- 1. ПРИВЕТСТВИЕ СТУДИИ -->
+        <div class="floating-item type-greeting" style="top: 8%; left: 5%;">
+            ПРИВЕТ "ЖИИИР" СТУДИЯ
+        </div>
+
+        <!-- 2. ДАРК ЭМБИЕНТ РЕЗЮМЕ ДЛЯ РУКОВОДИТЕЛЯ ОТДЕЛА МОНТАЖА -->
+        <div class="floating-item type-main-title" style="top: 18%; left: 5%;">
+            ДАРК ЭМБИЕНТ РЕЗЮМЕ ДЛЯ РУКОВОДИТЕЛЯ ОТДЕЛА МОНТАЖА
+        </div>
+
+        <!-- 3. ЛАЙВ СИМУЛЭЙШН (Ссылка на видео) -->
+        <a href="https://www.youtube.com/watch?v=zTtX2RVLGzU" target="_blank" class="floating-item type-huge" style="top: 36%; left: 5%;">
+            ЛАЙВ СИМУЛЭЙШН
+            <span class="subtext">▶ СМОТРЕТЬ НА YOUTUBE // БМВ Х5 В УРАЛЬСКЕ</span>
+        </a>
+
+        <!-- 4. Актуальный Ютубчик -->
+        <a href="https://www.youtube.com/watch?v=zTtX2RVLGzU" target="_blank" class="floating-item type-script" style="top: 40%; right: 10%;">
+            тут просто ютубчик актуальный ~
+        </a>
+
+        <!-- 5. Лор / Описание -->
+        <div class="floating-item type-quote" style="top: 10%; right: 6%;">
+            "Привет. Я продюсер, режиссер, оператор, сценарист, видеомонтажер, профессиональный водитель и вайбовый персонаж с собственным лором."
+        </div>
+
+        <!-- 6. Навыки & Абсурд -->
+        <div class="floating-item type-glitch" style="top: 54%; left: 5%;">
+            ретрансляция абсурда
+            <span class="subtext">иммерсивное шоу длиною в жизнь // видеомонтаж & продакшн</span>
+        </div>
+
+        <!-- 7. ТЕЛЕЖКА (Контакт в Telegram) -->
+        <a href="https://t.me/UlyanaGluhomaniaAkaSativa" target="_blank" class="floating-item type-glitch" style="top: 68%; right: 12%;">
+            ⚡ ТЕЛЕЖКА: @UlyanaGluhomaniaAkaSativa
+            <span class="subtext">НАЖМИ, ЧТОБЫ НАПИСАТЬ В TELEGRAM</span>
+        </a>
+
+        <!-- 8. ПОДКАСТЫ (без ценника) -->
+        <div class="floating-item type-clean" style="top: 66%; left: 22%;">
+            ПОДКАСТЫ
+            <span class="subtext">(еще не созданы / в процессе)</span>
+        </div>
+
+        <!-- 9. Секретный проект -->
+        <div class="floating-item type-secret" style="top: 82%; left: 6%;">
+            🔒 ТВОРЧЕСТВО [???]
+        </div>
+
+        <!-- 10. Авторская подпись -->
+        <div class="floating-item type-script" style="top: 52%; right: 35%;">
+            ~ Твой любимый Данияр-Александр
+        </div>
+
+        <!-- 11. Поиск проектов -->
+        <div class="floating-item type-quote" style="top: 80%; right: 6%;">
+            Ищу проекты, сотрудничество и новый опыт. В одиночку справиться сложно.
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 5000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 1.5 + 0.3,
+                    alpha: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function draw() {
+            ctx.fillStyle = '#030308';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            stars.forEach(s => {
+                s.alpha += s.speed;
+                if (s.alpha > 1 || s.alpha < 0) s.speed = -s.speed;
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(s.alpha)})`;
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', initCanvas);
+        initCanvas();
+        draw();
+    </script>
+</body>
+</html>
